@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("-----Move Player-----")]
     [SerializeField] protected float _speed;
-    [SerializeField] protected float _jumpForce;
     protected Vector2 _movement;
     protected Rigidbody2D _rb;
     protected bool _isOnGround;
+
+    [Header("-----Check Double Jump-----")]
+    [SerializeField] protected float _jumpForce;
     [SerializeField] protected Transform _pointJump;
     [SerializeField] protected LayerMask _groundLayerMask;
     protected bool _canDoubleJump;
+
+    [Header("-----Player Dash-----")]
     [SerializeField] protected float _forceDash;
     [SerializeField] protected float _timeDash;
     [SerializeField] protected float _dashCoolDown;
     protected bool _isDashing;
     protected bool _canDash = true;
+
+    [Header("-----ChangeAnimation")]
     [SerializeField] protected PlayerState _playerState = PlayerState.Idle;
     [SerializeField] protected AnimationController _ani;
 
+    [Header("-----ATTACKS-----")]
+    [Header("---Atk1---")]
+    [SerializeField] protected NormalAtk _normalAtk;
+    [SerializeField] protected float _timeAtk1;
+    protected bool _isAtk1 = false;
+
+    [Header("---Atk2---")]
+    [SerializeField] protected NormalAtk _normalAtk2;
+    [SerializeField] protected float _timeAtk2;
+    protected bool _isAtk2 = false;
 
     private void Start()
     {
@@ -39,6 +56,7 @@ public class PlayerController : MonoBehaviour
         this.Dash();
         this.ChangeAni();
         _ani.UpdateAnimation(_playerState);
+        this.Atks();
     }
 
     private void FixedUpdate()
@@ -47,13 +65,20 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        _rb.velocity = _movement;
+        _rb.velocity = new Vector2(_movement.x, _rb.velocity.y);
     }
 
     protected void Move()
     {
         _movement = _rb.velocity;
-        _movement.x = Input.GetAxisRaw("Horizontal") * _speed;
+        if (_isAtk1 || _isAtk2)
+        {
+            _movement.x = 0;
+        }
+        else
+        {
+            _movement.x = Input.GetAxisRaw("Horizontal") * _speed;
+        }
     }
 
     protected void DoubleJump()
@@ -87,12 +112,41 @@ public class PlayerController : MonoBehaviour
 
     protected void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.C) && _canDash)
+        if (Input.GetKeyDown(KeyCode.E) && _canDash)
         {
             StartCoroutine(PlayerDashing());
         }
     }
 
+    protected void Atks()
+    {
+        if (Input.GetKeyDown(KeyCode.J) && !_isAtk1)
+        {
+            StartCoroutine(Atk1AfterTime());
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) && !_isAtk2)
+        {
+            StartCoroutine(Atk1AfterTime2());
+        }
+
+    }
+
+    protected IEnumerator Atk1AfterTime()
+    {
+        _isAtk1 = true;
+        _normalAtk.AttackSkill1();
+        yield return new WaitForSeconds(_timeAtk1);
+        _isAtk1 = false;
+    }
+
+    protected IEnumerator Atk1AfterTime2()
+    {
+        _isAtk2 = true;
+        _normalAtk2.AttackSkill1();
+        yield return new WaitForSeconds(_timeAtk2);
+        _isAtk2 = false;
+    }
     protected IEnumerator PlayerDashing()
     {
         _isDashing = true;
@@ -140,6 +194,14 @@ public class PlayerController : MonoBehaviour
         if (_isDashing)
         {
             _playerState = PlayerState.Walk;
+        }
+        if (_isAtk1)
+        {
+            _playerState = PlayerState.Atk1;
+        }
+        if (_isAtk2)
+        {
+            _playerState = PlayerState.Atk2;
         }
     }
     public enum PlayerState
