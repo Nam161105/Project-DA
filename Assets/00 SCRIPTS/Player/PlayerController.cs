@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     protected bool _isDashing;
     protected bool _canDash = true;
 
-    [Header("-----ChangeAnimation")]
+    [Header("-----Change Animation-----")]
     [SerializeField] protected PlayerState _playerState = PlayerState.Idle;
     [SerializeField] protected AnimationController _ani;
 
@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected NormalAtk _normalAtk2;
     [SerializeField] protected float _timeAtk2;
     protected bool _isAtk2 = false;
+
+    [Header("---Atk3---")]
+    [SerializeField] protected NormalAtk _normalAtk3;
+    [SerializeField] protected float _timeAtk3;
+    protected bool _isAtk3 = false;
 
     private void Start()
     {
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
     protected void Move()
     {
         _movement = _rb.velocity;
-        if (_isAtk1 || _isAtk2)
+        if (_isAtk1 || _isAtk2 || _isAtk3)
         {
             _movement.x = 0;
         }
@@ -108,6 +113,7 @@ public class PlayerController : MonoBehaviour
     protected void Jump()
     {
         _rb.AddForce(new Vector2(0, _jumpForce));
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._jumpSound);
     }
 
     protected void Dash()
@@ -130,11 +136,17 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Atk1AfterTime2());
         }
 
+        if (Input.GetKeyDown(KeyCode.L) && !_isAtk3)
+        {
+            StartCoroutine(Atk1AfterTime3());
+        }
+
     }
 
     protected IEnumerator Atk1AfterTime()
     {
         _isAtk1 = true;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk1);
         _normalAtk.AttackSkill1();
         yield return new WaitForSeconds(_timeAtk1);
         _isAtk1 = false;
@@ -143,15 +155,26 @@ public class PlayerController : MonoBehaviour
     protected IEnumerator Atk1AfterTime2()
     {
         _isAtk2 = true;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk2);
         _normalAtk2.AttackSkill1();
         yield return new WaitForSeconds(_timeAtk2);
         _isAtk2 = false;
+    }
+
+    protected IEnumerator Atk1AfterTime3()
+    {
+        _isAtk3 = true;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk3);
+        _normalAtk3.AttackSkill1();
+        yield return new WaitForSeconds(_timeAtk3);
+        _isAtk3 = false;
     }
     protected IEnumerator PlayerDashing()
     {
         _isDashing = true;
         float originGravityScale = _rb.gravityScale;
         _rb.gravityScale = 0f;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._dashSound);
         _rb.velocity = new Vector2(transform.localScale.x * _forceDash, 0f);
         _canDash = false;
         yield return new WaitForSeconds(_timeDash);
@@ -202,6 +225,10 @@ public class PlayerController : MonoBehaviour
         if (_isAtk2)
         {
             _playerState = PlayerState.Atk2;
+        }
+        if (_isAtk3)
+        {
+            _playerState = PlayerState.Atk3;
         }
     }
     public enum PlayerState
