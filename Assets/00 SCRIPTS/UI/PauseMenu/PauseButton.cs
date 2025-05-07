@@ -22,6 +22,11 @@ public class PauseButton : MonoBehaviour
         _pauseButton.SetActive(false);
     }
 
+    public void Cancel()
+    {
+        _pauseButton.SetActive(false);
+    }
+
     private void Update()
     {
         this.InputPauseMenu();
