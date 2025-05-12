@@ -45,13 +45,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite sprite)
+    public void AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
     {
         for (int i = 0; i < _itemSlot.Length; i++)
         {
             if (_itemSlot[i]._isFull == false)
             {
-                _itemSlot[i].AddItem(itemName, quantity, sprite);
+                _itemSlot[i].AddItem(itemName, quantity, sprite, itemDescription);
                 return;
             } 
         }
@@ -62,6 +62,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < _itemSlot.Length; i++)
         {
             _itemSlot[i]._selectedItem.gameObject.SetActive(false);
+            _itemSlot[i]._checkSelected = false;
         }
     }
 }
