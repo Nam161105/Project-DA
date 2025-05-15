@@ -45,16 +45,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
+    public int AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
     {
         for (int i = 0; i < _itemSlot.Length; i++)
         {
-            if (_itemSlot[i]._isFull == false)
+            if (_itemSlot[i]._isFull == false && _itemSlot[i]._itemName == itemName || _itemSlot[i]._quantity == 0)
             {
-                _itemSlot[i].AddItem(itemName, quantity, sprite, itemDescription);
-                return;
-            } 
+                int leftOverItems =  _itemSlot[i].AddItem(itemName, quantity, sprite, itemDescription);
+                if (leftOverItems > 0)
+                {
+                    leftOverItems = AddItem(itemName, leftOverItems, sprite, itemDescription);
+                }
+                return leftOverItems;
+            }
         }
+        return quantity;
     }
 
     public void DeleteSelectedItem()

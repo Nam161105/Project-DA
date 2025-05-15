@@ -8,10 +8,10 @@ using UnityEngine.U2D;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] protected string _itemName;
-    [SerializeField] protected int _quantity;
-    [SerializeField] protected Sprite _spriteItem;
-    [SerializeField] protected string _itemDescription;
+    [SerializeField] public string _itemName;
+    [SerializeField] public int _quantity;
+    [SerializeField] public Sprite _spriteItem;
+    [SerializeField] public string _itemDescription;
 
     [SerializeField] protected TMP_Text _textQuantity;
     [SerializeField] protected Image _imageItem;
@@ -23,17 +23,43 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] protected Image _itemImageDescription;
     [SerializeField] protected TMP_Text _itemTextDescription;
     [SerializeField] protected TMP_Text _itemNameTextDescription;
-    public void AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
-    {
-        this._itemName = itemName;
-        this._quantity = quantity;
-        this._spriteItem = sprite;
-        this._itemDescription = itemDescription;
-        _isFull = true;
 
-        _textQuantity.text = _quantity.ToString();
-        _textQuantity.enabled = true;
+    [SerializeField] protected int _maxSlotItems;
+    public int AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
+    {
+        if (_isFull)
+        {
+            return quantity;
+        }
+        //update ten
+        this._itemName = itemName;
+
+        //ipdate image
+        this._spriteItem = sprite;
         _imageItem.sprite = _spriteItem;
+
+        //update mo ta
+        this._itemDescription = itemDescription;
+
+        
+
+        this._quantity += quantity;
+        if (this._quantity >= _maxSlotItems)
+        {
+            _textQuantity.text = _maxSlotItems.ToString();
+            _textQuantity.enabled = true;
+            _isFull = true;
+
+            int leftOverItem = this._quantity - _maxSlotItems;
+            this._quantity = leftOverItem;
+            return leftOverItem;
+
+        }
+
+        _textQuantity.text = this._quantity.ToString();
+        _textQuantity.enabled = true;
+
+        return 0;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -45,7 +71,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnLeftClick(){
-        
+        Debug.Log("fytjhety");
         InventoryManager.Instance.DeleteSelectedItem();
         _selectedItem.SetActive(true);
         _useOrDeleteItem.SetActive(true);
@@ -54,9 +80,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         this._itemTextDescription.text = _itemDescription;
         this._itemNameTextDescription.text = _itemName;
         this._itemImageDescription.sprite = _spriteItem;
+
         if (_itemImageDescription.sprite == null)
         {
             _useOrDeleteItem.SetActive(false);
+            Debug.Log("nhan vao image null");
         }
 
     }
