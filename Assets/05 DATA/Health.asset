@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Health
   _stateItem: 1
+  _minDame: 100
+  _maxDame: 200

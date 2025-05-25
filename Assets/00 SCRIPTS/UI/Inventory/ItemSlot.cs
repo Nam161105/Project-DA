@@ -16,7 +16,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] protected TMP_Text _textQuantity;
     [SerializeField] protected Image _imageItem;
     [SerializeField] public GameObject _selectedItem;
-    [SerializeField] protected GameObject _useOrDeleteItem;
     public bool _checkSelected;
     public bool _isFull;
 
@@ -68,25 +67,73 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
             this.OnLeftClick();
         }
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            this.OnRightClick();
+        }
     }
 
-    public void OnLeftClick(){
-        Debug.Log("fytjhety");
-        InventoryManager.Instance.DeleteSelectedItem();
-        _selectedItem.SetActive(true);
-        _useOrDeleteItem.SetActive(true);
-        _checkSelected = true;
-
-        this._itemTextDescription.text = _itemDescription;
-        this._itemNameTextDescription.text = _itemName;
-        this._itemImageDescription.sprite = _spriteItem;
-
-        if (_itemImageDescription.sprite == null)
+    protected void OnLeftClick(){
+        if (_checkSelected)
         {
-            _useOrDeleteItem.SetActive(false);
-            Debug.Log("nhan vao image null");
+            if(this._quantity > 0)
+            {
+                InventoryManager.Instance.UseItem(_itemName);
+            }
+
+            this._quantity -= 1;
+            _textQuantity.text = this._quantity.ToString();
+
+            if (this._quantity <= 0)
+            {
+                this.DeleteItem();  
+            }
+
+        }
+        else
+        {
+            InventoryManager.Instance.DeleteSelectedItem();
+            _selectedItem.SetActive(true);
+            _checkSelected = true;
+
+            if(_checkSelected || _itemImageDescription  == null)
+            {
+                this._itemTextDescription.text = "";
+                this._itemNameTextDescription.text = "";
+                this._itemImageDescription.sprite = null;
+                return;
+            }
+            this._itemTextDescription.text = _itemDescription;
+            this._itemNameTextDescription.text = _itemName;
+            this._itemImageDescription.sprite = _spriteItem;
         }
 
+    }
+
+    protected void OnRightClick()
+    {
+        if (_checkSelected)
+        {
+            this._quantity -= 1;
+            _textQuantity.text = this._quantity.ToString();
+            if (this._quantity <= 0)
+            {
+                this.DeleteItem();
+            }
+        }
+    }
+
+    protected void DeleteItem()
+    {
+        InventoryManager.Instance.DeleteSelectedItem();
+        this._quantity = 0;
+
+        _textQuantity.enabled = false;
+        _imageItem.sprite = null;
+
+        this._itemTextDescription.text = "";
+        this._itemNameTextDescription.text = "";
+        this._itemImageDescription.sprite = null;
     }
 
 }

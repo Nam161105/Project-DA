@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] protected ItemSlot[] _itemSlot;
     protected bool _isFull;
 
+    [SerializeField] protected ItemSO[] _itemSO;
     private void Awake()
     {
         if(instance == null)
@@ -45,6 +46,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void UseItem(string itemName)
+    {
+        for(int i = 0;i < _itemSO.Length; i++)
+        {
+            if (_itemSO[i]._itemName == itemName)
+            {
+                _itemSO[i].UseItem();
+            }
+        }
+    }
     public int AddItem(string itemName, int quantity, Sprite sprite, string itemDescription)
     {
         for (int i = 0; i < _itemSlot.Length; i++)
@@ -66,7 +77,7 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < _itemSlot.Length; i++)
         {
-            _itemSlot[i]._selectedItem.gameObject.SetActive(false);
+            _itemSlot[i]._selectedItem.SetActive(false);
             _itemSlot[i]._checkSelected = false;
         }
     }
