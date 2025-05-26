@@ -39,7 +39,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
         //update mo ta
         this._itemDescription = itemDescription;
-
         
 
         this._quantity += quantity;
@@ -54,7 +53,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             return leftOverItem;
 
         }
-
+        
         _textQuantity.text = this._quantity.ToString();
         _textQuantity.enabled = true;
 
@@ -90,23 +89,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             }
 
         }
-        else
-        {
+        
+        
             InventoryManager.Instance.DeleteSelectedItem();
             _selectedItem.SetActive(true);
             _checkSelected = true;
 
-            if(_checkSelected || _itemImageDescription  == null)
-            {
-                this._itemTextDescription.text = "";
-                this._itemNameTextDescription.text = "";
-                this._itemImageDescription.sprite = null;
-                return;
-            }
             this._itemTextDescription.text = _itemDescription;
             this._itemNameTextDescription.text = _itemName;
             this._itemImageDescription.sprite = _spriteItem;
+
+        if (this._quantity <= 0)
+        {
+            this._itemTextDescription.text = "";
+            this._itemNameTextDescription.text = "";
+            this._itemImageDescription.sprite = null;
         }
+
+
 
     }
 
