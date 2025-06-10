@@ -1662,8 +1662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ec7a7ca22eff54f8a6b96f73f4f716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 19685207219480686, guid: bfb088ec1e44dc642a52aa346af7ff45, type: 3}
+  _bulletPrefab: {fileID: 6768360978357098166, guid: bfb088ec1e44dc642a52aa346af7ff45, type: 3}
   _posInstance: {fileID: 150363764}
+  _enemyPos: {fileID: 309772691}
 --- !u!1 &433420335
 GameObject:
   m_ObjectHideFlags: 0

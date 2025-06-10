@@ -13,6 +13,10 @@ public class FireMove : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    public void SetDir(Vector3 dir)
+    {
+        _direction = dir.normalized;
+    }
     private void Update()
     {
         this.MoveBullet();
