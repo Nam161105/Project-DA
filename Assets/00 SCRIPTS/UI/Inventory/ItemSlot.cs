@@ -89,8 +89,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             }
 
         }
-        
-        
+
             InventoryManager.Instance.DeleteSelectedItem();
             _selectedItem.SetActive(true);
             _checkSelected = true;

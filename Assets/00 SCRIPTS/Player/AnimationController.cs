@@ -6,10 +6,27 @@ using PlayerState = PlayerController.PlayerState;
 public class AnimationController : MonoBehaviour
 {
     protected Animator _ani;
+    [SerializeField] protected NormalAtk _enemyBase;
+    [SerializeField] protected NormalAtk _enemyBase2;
+    [SerializeField] protected NormalAtk _enemyBase3;
 
     private void Start()
     {
         _ani = GetComponent<Animator>();
+
+    }
+
+    public void TakeDamageEvent()
+    {
+        _enemyBase.AttackSkill1();
+    }
+    public void TakeDamageEvent2()
+    {
+        _enemyBase2.AttackSkill1();
+    }
+    public void TakeDamageEvent3()
+    {
+        _enemyBase3.AttackSkill1();
     }
 
     public void UpdateAnimation(PlayerState playerState)
@@ -27,4 +44,6 @@ public class AnimationController : MonoBehaviour
             }
         }
     }
+
+    
 }

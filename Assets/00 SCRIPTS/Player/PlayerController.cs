@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("-----Move Player-----")]
     [SerializeField] protected float _speed;
     protected Vector2 _movement;
@@ -147,7 +148,6 @@ public class PlayerController : MonoBehaviour
     {
         _isAtk1 = true;
         AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk1);
-        _normalAtk.AttackSkill1();
         yield return new WaitForSeconds(_timeAtk1);
         _isAtk1 = false;
     }
@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
     {
         _isAtk2 = true;
         AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk2);
-        _normalAtk2.AttackSkill1();
         yield return new WaitForSeconds(_timeAtk2);
         _isAtk2 = false;
     }
@@ -165,7 +164,6 @@ public class PlayerController : MonoBehaviour
     {
         _isAtk3 = true;
         AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk3);
-        _normalAtk3.AttackSkill1();
         yield return new WaitForSeconds(_timeAtk3);
         _isAtk3 = false;
     }

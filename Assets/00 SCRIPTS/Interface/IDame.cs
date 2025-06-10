@@ -2,5 +2,5 @@
 
 public interface IDame 
 {
-    void TakDame(int minDame, int maxDame);
+    public void TakDame(int minDame, int maxDame);
 }

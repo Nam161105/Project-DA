@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NormalAtk : MonoBehaviour
@@ -7,6 +8,9 @@ public class NormalAtk : MonoBehaviour
     [SerializeField] protected Transform _pointAtk;
     [SerializeField] protected float _rangeAtk;
     [SerializeField] protected LayerMask _enemy;
+    [SerializeField] protected int _minDame;
+    [SerializeField] protected int _maxDame;
+
     public void AttackSkill1()
     {
         Collider2D[] colli = Physics2D.OverlapCircleAll(_pointAtk.transform.position, _rangeAtk, _enemy);
@@ -14,7 +18,11 @@ public class NormalAtk : MonoBehaviour
         {
             if (col.CompareTag("Enemy"))
             {
-                Debug.Log("dbrdt");
+                IDame dame = col.GetComponent<IDame>();
+                if (dame != null)
+                {
+                    dame.TakDame(_minDame, _maxDame);
+                }
             }
         }
     }
