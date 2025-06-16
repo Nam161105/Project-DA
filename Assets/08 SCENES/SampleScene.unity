@@ -3424,6 +3424,9 @@ MonoBehaviour:
     m_Bits: 512
   _minDame: 105
   _maxDame: 110
+  _jAtk: 0
+  _kAtk: 0
+  _lAtk: 0
   _imageSkill1: {fileID: 195257153}
   _imageSkill2: {fileID: 1923595911}
   _imageSkill3: {fileID: 614345390}
@@ -4747,6 +4750,9 @@ MonoBehaviour:
     m_Bits: 512
   _minDame: 100
   _maxDame: 105
+  _jAtk: 0
+  _kAtk: 0
+  _lAtk: 0
   _imageSkill1: {fileID: 195257153}
   _imageSkill2: {fileID: 1923595911}
   _imageSkill3: {fileID: 614345390}
@@ -7010,6 +7016,9 @@ MonoBehaviour:
     m_Bits: 512
   _minDame: 90
   _maxDame: 95
+  _jAtk: 0
+  _kAtk: 0
+  _lAtk: 0
   _imageSkill1: {fileID: 195257153}
   _imageSkill2: {fileID: 1923595911}
   _imageSkill3: {fileID: 614345390}
@@ -7060,9 +7069,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1124519774}
   audioClip: {fileID: 1920660275}
-  _normalAtk1: {fileID: 8300000, guid: d7210df91db81bb4180cb96f33d140bc, type: 3}
+  _normalAtk1: {fileID: 8300000, guid: 2028060bd0c1ac948a20548bcca06864, type: 3}
   _normalAtk2: {fileID: 8300000, guid: 2c0f01242580c5346b2ce7200659d059, type: 3}
-  _normalAtk3: {fileID: 8300000, guid: b706abbbc81f4d24cb92bb49a1090f16, type: 3}
+  _normalAtk3: {fileID: 8300000, guid: f602c80a1cff6334d8f3a3ce4f61b649, type: 3}
   _jumpSound: {fileID: 8300000, guid: 5ba6fa00dd7672b45abf9abbdee8fc67, type: 3}
   _dashSound: {fileID: 8300000, guid: 23e010e04774eb54eb0fafc64d646e86, type: 3}
 --- !u!4 &1609318492
