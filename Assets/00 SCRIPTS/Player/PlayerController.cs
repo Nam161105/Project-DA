@@ -177,7 +177,6 @@ public class PlayerController : MonoBehaviour
     protected IEnumerator Atk1AfterTime()
     {
         _isAtk1 = true;
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk1);
         yield return new WaitForSeconds(_timeAtk1);
         _isAtk1 = false;
     }
@@ -185,7 +184,6 @@ public class PlayerController : MonoBehaviour
     protected IEnumerator Atk1AfterTime2()
     {
         _isAtk2 = true;
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk2);
         yield return new WaitForSeconds(_timeAtk2);
         _isAtk2 = false;
     }
@@ -193,7 +191,6 @@ public class PlayerController : MonoBehaviour
     protected IEnumerator Atk1AfterTime3()
     {
         _isAtk3 = true;
-        AudioManager.Instance.PlaySFX(AudioManager.Instance._normalAtk3);
         yield return new WaitForSeconds(_timeAtk3);
         _isAtk3 = false;
     }
