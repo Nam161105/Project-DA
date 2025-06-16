@@ -7,7 +7,6 @@ public class EnemyMove : BaseEnemys, IDame
 
     [Header("Text Dame")]
     [SerializeField] protected GameObject _textDameUI;
-    [SerializeField] protected Enemy1Atk _enemy1Atk;
 
     public void TakDame(int minDame, int maxDame)
     {
@@ -22,14 +21,12 @@ public class EnemyMove : BaseEnemys, IDame
         if (_enenmy.currentHp <= 0)
         {
             this.Die();
-            Debug.Log("Enemy da chet");
         }
     }
 
     protected void Die()
     {
         _animator.SetTrigger("die");
-        this.gameObject.GetComponent<EnemyMove>().enabled = false;
     }
 
 }

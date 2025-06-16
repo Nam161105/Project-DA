@@ -34,6 +34,11 @@ public abstract class BaseEnemys : MonoBehaviour
 
     private void Update()
     {
+        if(_enenmy.currentHp <= 0)
+        {
+            _animator.SetTrigger("die");
+            return;
+        }
         this.MoveToPlayer();
         this.TurningDirectionPlayer();
     }

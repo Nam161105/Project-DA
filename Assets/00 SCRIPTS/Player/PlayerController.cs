@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,9 +45,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float _timeAtk3;
     protected bool _isAtk3 = false;
 
+    [Header("Atk Speed Skill 1")]
+    [SerializeField] protected float _atkSpeed;
+    [SerializeField] protected float _countDownAtk;
+
+    [Header("Atk Speed Skill 1")]
+    [SerializeField] protected float _atkSpeed2;
+    [SerializeField] protected float _countDownAtk2;
+
+    [Header("Atk Speed Skill 1")]
+    [SerializeField] protected float _atkSpeed3;
+    [SerializeField] protected float _countDownAtk3;
+
+    [Header("UI skill")]
+    [SerializeField] protected Image _imageSkill1;
+    [SerializeField] protected Image _imageSkill2;
+    [SerializeField] protected Image _imageSkill3;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _countDownAtk = _atkSpeed;
+        _countDownAtk2 = _atkSpeed2;
+        _countDownAtk3 = _atkSpeed3;
     }
 
 
@@ -63,6 +84,12 @@ public class PlayerController : MonoBehaviour
         this.ChangeAni();
         _ani.UpdateAnimation(_playerState);
         this.Atks();
+        this.UpdateSkill1();
+        this.UpdateSkill2();
+        this.UpdateSkill3();
+        _countDownAtk += Time.deltaTime;
+        _countDownAtk2 += Time.deltaTime;
+        _countDownAtk3 += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -127,18 +154,21 @@ public class PlayerController : MonoBehaviour
 
     protected void Atks()
     {
-        if (Input.GetKeyDown(KeyCode.J) && !_isAtk1)
+        if (Input.GetKeyDown(KeyCode.J) && !_isAtk1 && _countDownAtk >= _atkSpeed)
         {
+            _countDownAtk = 0;
             StartCoroutine(Atk1AfterTime());
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && !_isAtk2)
+        if (Input.GetKeyDown(KeyCode.K) && !_isAtk2 && _countDownAtk2 >= _atkSpeed2)
         {
+            _countDownAtk2 = 0;
             StartCoroutine(Atk1AfterTime2());
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && !_isAtk3)
+        if (Input.GetKeyDown(KeyCode.L) && !_isAtk3 && _countDownAtk3 >= _atkSpeed3)
         {
+            _countDownAtk3 = 0;
             StartCoroutine(Atk1AfterTime3());
         }
 
@@ -228,6 +258,19 @@ public class PlayerController : MonoBehaviour
         {
             _playerState = PlayerState.Atk3;
         }
+    }
+
+    protected void UpdateSkill1()
+    {
+        _imageSkill1.fillAmount = 1 - (_countDownAtk / _atkSpeed);
+    }
+    protected void UpdateSkill2()
+    {
+        _imageSkill2.fillAmount = 1 - (_countDownAtk2 / _atkSpeed2);
+    }
+    protected void UpdateSkill3()
+    {
+        _imageSkill3.fillAmount = 1 - (_countDownAtk3 / _atkSpeed3);
     }
     public enum PlayerState
     {
