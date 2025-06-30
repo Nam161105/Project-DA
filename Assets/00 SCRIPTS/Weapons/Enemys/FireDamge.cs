@@ -6,6 +6,7 @@ public class FireDamge : MonoBehaviour
 {
     [SerializeField] protected int _minDamage;
     [SerializeField] protected int _maxDamage;
+    [SerializeField] protected GameObject _explosionEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,9 +16,17 @@ public class FireDamge : MonoBehaviour
             if (dame != null )
             {
                 dame.TakDame(_minDamage, _maxDamage);
-                Debug.Log("va cham voi player");
                 this.gameObject.SetActive(false);
+                this.InstanceEffect();
             }
         }
+    }
+
+    protected void InstanceEffect()
+    {
+        GameObject explosion = ObjectPool.Instance.GetObjectPrefab(_explosionEffect.gameObject);
+        explosion.transform.position = transform.position;
+        explosion.transform.rotation = Quaternion.identity;
+        explosion.SetActive(true);
     }
 }

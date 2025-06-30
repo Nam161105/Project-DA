@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip _normalAtk3;
     public AudioClip _jumpSound;
     public AudioClip _dashSound;
+    public AudioClip _explosionSkill1;
+    public AudioClip _cannonFire;
+    public AudioClip _explosionSkill2;
     private void Awake()
     {
         if (instance == null)

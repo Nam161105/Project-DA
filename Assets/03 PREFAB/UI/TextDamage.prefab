@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7002058200903455435}
   - component: {fileID: 3653390494069125238}
   - component: {fileID: 4872547751144941231}
-  - component: {fileID: 837485585573662070}
   - component: {fileID: 5019617011187744535}
   - component: {fileID: 7886355929318055242}
+  - component: {fileID: 675304516150137086}
   m_Layer: 5
   m_Name: TextDamage
   m_TagString: Untagged
@@ -100,19 +100,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &837485585573662070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3227389834982947695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9354ba3b15cd5e2439cb1ee82faf82c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifeTime: 0.6
 --- !u!210 &5019617011187744535
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -146,3 +133,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &675304516150137086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227389834982947695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a481977a9c5258242ad7466dbbf1f4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 0.6

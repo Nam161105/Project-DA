@@ -26,6 +26,14 @@ public class NormalAtk : MonoBehaviour
     [SerializeField] protected Text _imageSkill2;
     [SerializeField] protected Text _imageSkill3;
 
+    protected Vector3 _lastPos;
+    protected HiddenSkill1 _hiddenSkill1;
+    [SerializeField] protected CannonFire _hiddenSkill2;
+
+    private void Start()
+    {
+        _hiddenSkill1 = GetComponent<HiddenSkill1>();
+    }
 
     void Update()
     {
@@ -51,6 +59,7 @@ public class NormalAtk : MonoBehaviour
     public void AttackSkill1()
     {
         Collider2D[] colli = Physics2D.OverlapCircleAll(_pointAtk.transform.position, _rangeAtk, _enemy);
+        Vector3 currentPos = Vector3.zero;
         foreach (Collider2D col in colli)
         {
             if (col.CompareTag("Enemy"))
@@ -59,10 +68,12 @@ public class NormalAtk : MonoBehaviour
                 if (dame != null)
                 {
                     dame.TakDame(_minDame, _maxDame);
+                    currentPos = col.transform.position;
                     this.InputTagEnemy();
                 }
             }
         }
+        _lastPos = currentPos;
         _lastKey = KeyCode.None;
     }
 
@@ -97,25 +108,32 @@ public class NormalAtk : MonoBehaviour
 
     protected void Skill1Atk()
     {
-        if(_jAtk == 4)
+        if(_jAtk >= 4)
         {
             _jAtk = 0;
             _imageSkill1.text = _jAtk.ToString();
+            StartCoroutine(HiddenSkill1AfterTime());
         }
     }
 
+    protected IEnumerator HiddenSkill1AfterTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _hiddenSkill1.HiddenSkill1Atk(_lastPos);
+    }
     protected void Skill2Atk()
     {
-        if (_kAtk == 3)
+        if (_kAtk >= 1)
         {
             _kAtk = 0;
             _imageSkill2.text = _kAtk.ToString();
+            _hiddenSkill2.Start();
         }
     }
 
     protected void Skill3Atk()
     {
-        if (_lAtk == 3)
+        if (_lAtk >= 3)
         {
             _lAtk = 0;
             _imageSkill3.text = _lAtk.ToString();

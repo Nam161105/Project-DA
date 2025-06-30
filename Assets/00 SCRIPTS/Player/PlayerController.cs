@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float _dashCoolDown;
     protected bool _isDashing;
     protected bool _canDash = true;
+    [SerializeField] protected float _dashTimeImage;
 
     [Header("-----Change Animation-----")]
     [SerializeField] protected PlayerState _playerState = PlayerState.Idle;
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected Image _imageSkill1;
     [SerializeField] protected Image _imageSkill2;
     [SerializeField] protected Image _imageSkill3;
+    [SerializeField] protected Image _imageSkillDash;
 
     private void Start()
     {
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
         _countDownAtk = _atkSpeed;
         _countDownAtk2 = _atkSpeed2;
         _countDownAtk3 = _atkSpeed3;
+        _dashTimeImage = _dashCoolDown;
     }
 
 
@@ -87,9 +90,11 @@ public class PlayerController : MonoBehaviour
         this.UpdateSkill1();
         this.UpdateSkill2();
         this.UpdateSkill3();
+        this.UpdateSkillDash();
         _countDownAtk += Time.deltaTime;
         _countDownAtk2 += Time.deltaTime;
         _countDownAtk3 += Time.deltaTime;
+        _dashTimeImage += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -146,8 +151,9 @@ public class PlayerController : MonoBehaviour
 
     protected void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _canDash)
+        if (Input.GetKeyDown(KeyCode.E) && _canDash && _dashTimeImage >= _dashCoolDown)
         {
+            _dashTimeImage = 0;
             StartCoroutine(PlayerDashing());
         }
     }
@@ -268,6 +274,10 @@ public class PlayerController : MonoBehaviour
     protected void UpdateSkill3()
     {
         _imageSkill3.fillAmount = 1 - (_countDownAtk3 / _atkSpeed3);
+    }
+    protected void UpdateSkillDash()
+    {
+        _imageSkillDash.fillAmount = 1 - (_dashTimeImage / _dashCoolDown);
     }
     public enum PlayerState
     {

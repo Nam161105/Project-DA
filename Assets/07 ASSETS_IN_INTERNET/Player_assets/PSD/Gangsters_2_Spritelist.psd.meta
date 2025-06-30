@@ -118,7 +118,7 @@ TextureImporter:
         width: 10
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +160,7 @@ TextureImporter:
         width: 17
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,27 @@ TextureImporter:
       bones: []
       spriteID: 2c3ce5206fb2d5c4c955f228fb2208f7
       internalID: 1840943007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gangsters_2_Spritelist_3
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 755
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aa9f99c1c5e7e4ab937303e61ec3ce
+      internalID: 1614575039
       vertices: []
       indices: 
       edges: []
@@ -186,6 +207,8 @@ TextureImporter:
       Gangsters_2_Spritelist_0: -1688968235
       Gangsters_2_Spritelist_1: 1785226224
       Gangsters_2_Spritelist_2: 1840943007
+      Gangsters_2_Spritelist_3: 1614575039
+      Gangsters_2_Spritelist_4: -905890420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDamage: 50
   _maxDamage: 55
+  _explosionEffect: {fileID: 630854850067263794, guid: 9b528250f6e288841ae20bf78ba9fcf9, type: 3}
 --- !u!114 &311996100276621105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
-  _PlayerPos: {fileID: 0}
 --- !u!114 &3787219842371295758
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -139,7 +139,7 @@ TextureImporter:
         width: 70
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,27 @@ TextureImporter:
       bones: []
       spriteID: 047c420ba71c96440aae07ccaadb182f
       internalID: 303665280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FreeHorrorUi_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4
+        width: 58
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5c1431c520b6e458b31855650cf125
+      internalID: 491392441
       vertices: []
       indices: 
       edges: []
@@ -164,6 +185,8 @@ TextureImporter:
     nameFileIdTable:
       FreeHorrorUi_0: -786164017
       FreeHorrorUi_1: 303665280
+      FreeHorrorUi_2: -948487775
+      FreeHorrorUi_3: 491392441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
