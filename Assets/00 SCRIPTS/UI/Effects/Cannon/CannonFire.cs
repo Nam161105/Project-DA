@@ -17,7 +17,8 @@ public class CannonFire : MonoBehaviour
         _ani = GetComponent<Animator>();
     }
 
-    public void Start()
+
+    public void FireAtk()
     {
         StartCoroutine(AtkAfterTime());
     }

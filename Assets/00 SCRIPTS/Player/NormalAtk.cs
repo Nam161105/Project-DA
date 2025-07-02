@@ -123,11 +123,11 @@ public class NormalAtk : MonoBehaviour
     }
     protected void Skill2Atk()
     {
-        if (_kAtk >= 1)
+        if (_kAtk >= 3)
         {
             _kAtk = 0;
             _imageSkill2.text = _kAtk.ToString();
-            _hiddenSkill2.Start();
+            _hiddenSkill2.FireAtk();
         }
     }
 

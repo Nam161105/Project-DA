@@ -15,7 +15,7 @@ public class HiddenSkill2 : MonoBehaviour
 
     protected IEnumerator DameEneyAfterTime()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         GameObject g = ObjectPool.Instance.GetObjectPrefab(_explosionHiddenSkill2.gameObject);
         g.SetActive(true);
         g.transform.position = transform.position;
