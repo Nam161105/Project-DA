@@ -12,9 +12,8 @@ public class Enemy2 : BaseEnemys, IDame
         int dame = Random.Range(minDame, maxDame);
         GameObject textDame = ObjectPool.Instance.GetObjectPrefab(_textDameUI.gameObject);
         textDame.GetComponent<TextMesh>().text = dame.ToString();
-        textDame.transform.position = transform.position;
-        textDame.transform.rotation = Quaternion.identity;
         textDame.transform.parent = transform;
+        textDame.transform.rotation = Quaternion.identity;
         textDame.SetActive(true);
         _enenmy.currentHp -= dame;
         if (_enenmy.currentHp <= 0)

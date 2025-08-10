@@ -24,7 +24,6 @@ public abstract class BaseEnemys : MonoBehaviour
     [SerializeField] protected float _distanceCanAtk;
 
 
-
     private void Start()
     {
         _enenmy.currentHp = _enenmy.maxHp;
@@ -84,16 +83,17 @@ public abstract class BaseEnemys : MonoBehaviour
     protected void TurningDirectionPlayer()
     {
         float direction = _playerPos.transform.position.x - transform.position.x;
+
         if (direction < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
         else if (direction >= 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
-    
+
 
 }

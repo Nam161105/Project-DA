@@ -14,6 +14,8 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
     [SerializeField] protected int _minAddDame;
     [SerializeField] protected int _maxAddDame;
 
+    [SerializeField] protected GameObject _textDamageUI;
+
     
 
     private void Awake()
@@ -51,7 +53,13 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
 
     public void TakDame(int minDame, int maxDame)
     {
-        _dataPlayer.currentHp -= Random.Range(minDame, maxDame);
+        int dame = Random.Range(minDame, maxDame);
+        _dataPlayer.currentHp -= dame;
+        GameObject textDamage = ObjectPool.Instance.GetObjectPrefab(_textDamageUI.gameObject);
+        textDamage.GetComponent<TextMesh>().text = dame.ToString();
+        textDamage.SetActive(true);
+        textDamage.transform.parent = transform;
+        textDamage.transform.rotation = Quaternion.identity;
         if (_dataPlayer.currentHp <= 0)
         {
             Debug.Log("player da chet");

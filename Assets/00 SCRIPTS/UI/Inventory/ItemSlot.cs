@@ -33,7 +33,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         //update ten
         this._itemName = itemName;
 
-        //ipdate image
+        //update image
         this._spriteItem = sprite;
         _imageItem.sprite = _spriteItem;
 

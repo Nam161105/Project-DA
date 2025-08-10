@@ -219,11 +219,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_rb.velocity.x > 0f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (_rb.velocity.x < 0f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
