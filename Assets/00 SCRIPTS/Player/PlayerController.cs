@@ -50,11 +50,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float _atkSpeed;
     [SerializeField] protected float _countDownAtk;
 
-    [Header("Atk Speed Skill 1")]
+    [Header("Atk Speed Skill 2)")]
     [SerializeField] protected float _atkSpeed2;
     [SerializeField] protected float _countDownAtk2;
 
-    [Header("Atk Speed Skill 1")]
+    [Header("Atk Speed Skill 3")]
     [SerializeField] protected float _atkSpeed3;
     [SerializeField] protected float _countDownAtk3;
 
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
         float originGravityScale = _rb.gravityScale;
         _rb.gravityScale = 0f;
         AudioManager.Instance.PlaySFX(AudioManager.Instance._dashSound);
-        _rb.velocity = new Vector2(transform.localScale.x * _forceDash, 0f);
+        _rb.velocity = new Vector2(transform.right.x * _forceDash, 0f);
         _canDash = false;
         yield return new WaitForSeconds(_timeDash);
         _rb.gravityScale = originGravityScale;
