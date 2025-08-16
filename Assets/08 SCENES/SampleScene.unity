@@ -1849,7 +1849,7 @@ Transform:
   m_GameObject: {fileID: 309772691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.88, y: 2.02, z: 0}
+  m_LocalPosition: {x: 20.18, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1965,10 +1965,11 @@ MonoBehaviour:
   _speed: 4
   _playerPos: {fileID: 763595837}
   _atkSpeed: 1
+  _nextAtkTime: 0
   _timeAniAtk: 0.5
-  _distancePlayerWithEnemy: 30
-  _distanceCanAtk: 10
   _textDameUI: {fileID: 3227389834982947695, guid: 09c5ca067575ded46ad1ee4743fef66c, type: 3}
+  _distancePlayerWithEnemy: 30.5
+  _distanceCanAtk: 10
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -4336,7 +4337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &918834736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4533,10 +4534,11 @@ MonoBehaviour:
   _speed: 4
   _playerPos: {fileID: 763595837}
   _atkSpeed: 0.1
+  _nextAtkTime: 0
   _timeAniAtk: 0.9
+  _textDameUI: {fileID: 3227389834982947695, guid: 09c5ca067575ded46ad1ee4743fef66c, type: 3}
   _distancePlayerWithEnemy: 25
   _distanceCanAtk: 1.5
-  _textDameUI: {fileID: 3227389834982947695, guid: 09c5ca067575ded46ad1ee4743fef66c, type: 3}
   _item: {fileID: 2533864640947239628, guid: 891bb755bdfc42b488ba340a3e236c54, type: 3}
   _lifeTime: 2
 --- !u!114 &918834743
@@ -4564,7 +4566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921161564}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: PointInstance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5954,7 +5956,7 @@ GameObject:
   - component: {fileID: 1250579543}
   - component: {fileID: 1250579548}
   - component: {fileID: 1250579549}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9286,8 +9288,8 @@ Transform:
   m_GameObject: {fileID: 1761062475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.3, y: -1.07, z: 0}
-  m_LocalScale: {x: 9.742394, y: 1, z: 1}
+  m_LocalPosition: {x: 19.8298, y: -1.07, z: 0}
+  m_LocalScale: {x: 14.80162, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
