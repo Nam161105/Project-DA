@@ -50,7 +50,7 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
     protected void UpdateHealthBar()
     {
         _imageHealth.fillAmount = _dataPlayer.currentHp / _dataPlayer.maxHp;
-        _textHealth.text = _dataPlayer.currentHp.ToString() + "/2000";
+        _textHealth.text = _dataPlayer.currentHp.ToString() + "/4000";
     }
 
     public void TakDame(int minDame, int maxDame)

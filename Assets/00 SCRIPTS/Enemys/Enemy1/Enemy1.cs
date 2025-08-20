@@ -15,6 +15,7 @@ public class Enemy1 : BaseEnemys
     protected override void MoveToPlayer()
     {
         float distance = Vector2.Distance(this.transform.position, _playerPos.transform.position);
+        this.TurningDirectionPlayer();
         if (distance > _distancePlayerWithEnemy)
         {
             _animator.SetTrigger("idle");
@@ -54,7 +55,7 @@ public class Enemy1 : BaseEnemys
     protected override void Die()
     {
         _animator.SetTrigger("die");
-        //sStartCoroutine(InstanceItemAfterTime());
+        StartCoroutine(InstanceItemAfterTime());
     }
 
     protected IEnumerator InstanceItemAfterTime()
@@ -64,7 +65,6 @@ public class Enemy1 : BaseEnemys
         g.SetActive(true) ;
         g.transform.position = transform.position;
         g.transform.rotation = Quaternion.identity;
-        Debug.Log("gameobject dc sinh ra lan 1");
     }
 
 }

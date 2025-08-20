@@ -18,7 +18,6 @@ public class Enemy2 : BaseEnemys, IDame
     protected override void MoveToPlayer()
     {
         float distance = Vector2.Distance(this.transform.position, _playerPos.transform.position);
-        Debug.Log(distance);
         if (distance > _distancePlayerWithEnemy)
         {
             this.MoveAroundGround();
@@ -80,12 +79,14 @@ public class Enemy2 : BaseEnemys, IDame
 
     }
 
+
     protected IEnumerator AtkAfterTime()
     {
         _animator.SetTrigger("atk");
         yield return new WaitForSeconds(_timeAniAtk);
-        _nextAtkTime = 0;
+        _nextAtkTime = 0;    
     }
+
 
 
     protected override void Die()

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    protected static PlayerController instance;
+    public static PlayerController Instance => instance;
 
     [Header("-----Move Player-----")]
     [SerializeField] protected float _speed;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("-----Change Animation-----")]
     [SerializeField] protected PlayerState _playerState = PlayerState.Idle;
+    public PlayerState _PlayerState => _playerState;
     [SerializeField] protected AnimationController _ani;
 
     [Header("-----ATTACKS-----")]
@@ -64,6 +67,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected Image _imageSkill3;
     [SerializeField] protected Image _imageSkillDash;
 
+
+    private void Awake()
+    {
+        if(instance  == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

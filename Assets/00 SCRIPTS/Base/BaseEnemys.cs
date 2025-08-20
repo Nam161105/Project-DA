@@ -29,6 +29,8 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
     [SerializeField] protected float _distancePlayerWithEnemy;
     [SerializeField] protected float _distanceCanAtk;
 
+    protected bool _isDead;
+
 
 
     private void Start()
@@ -52,6 +54,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
 
     public void TakDame(int minDame, int maxDame)
     {
+        _isDead = false;
         int dame = Random.Range(minDame, maxDame);
         GameObject textDame = ObjectPool.Instance.GetObjectPrefab(_textDameUI.gameObject);
         textDame.GetComponent<TextMesh>().text = dame.ToString();
@@ -59,13 +62,16 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
         textDame.transform.rotation = Quaternion.identity;
         textDame.SetActive(true);
         _enenmy.currentHp -= dame;
-        if (_enenmy.currentHp <= 0)
+        if (_enenmy.currentHp <= 0 && _isDead == false)
         {
+            _isDead = true;
+            Debug.Log("nhan vat da chet");
             this.Die();
         }
     }
 
 
+    protected abstract void Die();
     protected void TurningDirectionPlayer()
     {
         if (_enenmy.currentHp <= 0)
@@ -83,7 +89,6 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
-    protected abstract void Die();
 
 
 
