@@ -30,8 +30,6 @@ public class NormalAtk : MonoBehaviour
     protected HiddenSkill1 _hiddenSkill1;
     [SerializeField] protected CannonFire _hiddenSkill2;
 
-    [SerializeField] protected DataHealth _enemy1;
-    [SerializeField] protected DataHealth _enemy2;
 
     private void Start()
     {
@@ -111,14 +109,10 @@ public class NormalAtk : MonoBehaviour
 
     protected void Skill1Atk()
     {
-        if(_jAtk >= 3)
+        if(_jAtk >= 4)
         {
             _jAtk = 0;
             _imageSkill1.text = _jAtk.ToString();
-            if (_enemy1.currentHp <= 0 && _enemy2.currentHp <= 0)
-            {
-                return;
-            }
             StartCoroutine(HiddenSkill1AfterTime());
         }
     }
@@ -134,10 +128,6 @@ public class NormalAtk : MonoBehaviour
         {
             _kAtk = 0;
             _imageSkill2.text = _kAtk.ToString();
-            if (_enemy1.currentHp <= 0 || _enemy2.currentHp <= 0)
-            {
-                return;
-            }
             _hiddenSkill2.FireAtk();
         }
     }
@@ -148,10 +138,6 @@ public class NormalAtk : MonoBehaviour
         {
             _lAtk = 0;
             _imageSkill3.text = _lAtk.ToString();
-            if (_enemy1.currentHp <= 0 || _enemy2.currentHp <= 0)
-            {
-                return;
-            }
             BatAtk.Instance.Atk();
         }
     }

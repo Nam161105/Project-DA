@@ -21,6 +21,7 @@ public class Enemy1Atk : MonoBehaviour
                 IDame dame = c.gameObject.GetComponent<IDame>();
                 if (dame != null)
                 {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance._enemyPunch);
                     dame.TakDame(_minDamage, _maxDamage);
                 }
             }

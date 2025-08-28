@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     protected void Jump()
     {
         _rb.AddForce(new Vector2(0, _jumpForce));

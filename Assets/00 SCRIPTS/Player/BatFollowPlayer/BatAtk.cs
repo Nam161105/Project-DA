@@ -44,7 +44,7 @@ public class BatAtk : MonoBehaviour
     }
     public void AtkEnemy()
     {
-        
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._batClip);
         GameObject g = ObjectPool.Instance.GetObjectPrefab(_bulletPrefab.gameObject);
         g.SetActive(true);
         g.transform.position = _pointInstance.transform.position;

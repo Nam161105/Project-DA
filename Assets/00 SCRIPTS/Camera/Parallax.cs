@@ -15,7 +15,11 @@ public class Parallax : MonoBehaviour
 
     protected void ParallaxBG()
     {
-        if (PlayerController.Instance._PlayerState == PlayerController.PlayerState.Idle)
+        if (PlayerController.Instance._PlayerState == PlayerController.PlayerState.Idle || 
+            PlayerController.Instance._PlayerState == PlayerController.PlayerState.Jump ||
+            PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk1 ||
+            PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk2 ||
+            PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk3)
         {
             return;
         }

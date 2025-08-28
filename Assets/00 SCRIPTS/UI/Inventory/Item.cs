@@ -13,7 +13,9 @@ public class Item : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance._itemPicked);
             this.gameObject.SetActive(false);
+
             int leftOverItems = InventoryManager.Instance.AddItem(_itemName, _quantity, _spriteItem, _itemDescriptionText);
             if(leftOverItems <= 0)
             {

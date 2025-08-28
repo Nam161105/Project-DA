@@ -11,6 +11,7 @@ public class Enemy2AtkLongRange : MonoBehaviour
     protected void AtkPlayer()
     {
         GameObject bullet = ObjectPool.Instance.GetObjectPrefab(_bulletPrefab.gameObject);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance._shotEnemy);
         bullet.transform.position = _posInstance.position;
         bullet.transform.rotation = Quaternion.identity;
         bullet.SetActive(true);

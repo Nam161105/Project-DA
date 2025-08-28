@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : BaseEnemys, IDame
+public class Enemy2 : BaseEnemys
 {
 
     [SerializeField] protected LayerMask _groundLayerMask;
@@ -26,6 +26,7 @@ public class Enemy2 : BaseEnemys, IDame
         {
             if (distance <= _distanceCanAtk)
             {
+                _rb.velocity = Vector2.zero;
                 this.Atk();
             }
             else
@@ -40,7 +41,7 @@ public class Enemy2 : BaseEnemys, IDame
     {
         Vector2 dir = (transform.right - transform.up).normalized;
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dir, 3.5f, _groundLayerMask);
-        Debug.DrawRay(this.transform.position, dir * 3.5f, Color.yellow);
+        Debug.DrawRay(this.transform.position, dir * 3.5f, Color.red);
         if (hit.collider != null)
         {
             _movement = _rb.velocity;

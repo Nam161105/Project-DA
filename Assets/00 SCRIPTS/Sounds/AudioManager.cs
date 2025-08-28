@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip _explosionSkill1;
     public AudioClip _cannonFire;
     public AudioClip _explosionSkill2;
+    public AudioClip _batClip;
+    public AudioClip _shotEnemy;
+    public AudioClip _enemyPunch;
+    public AudioClip _itemPicked;
     private void Awake()
     {
         if (instance == null)
