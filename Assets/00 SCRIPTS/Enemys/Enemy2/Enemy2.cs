@@ -62,15 +62,7 @@ public class Enemy2 : BaseEnemys
     {
         if(_enenmy.currentHp < _enenmy.maxHp)
         {
-            if (_nextAtkTime >= _atkSpeed)
-            {
-                this.TurningDirectionPlayer();
-                StartCoroutine(AtkAfterTime());
-            }
-            else
-            {
-                _animator.SetTrigger("idle");
-            }
+            StartCoroutine(AtkAfterTime());
         }
         else
         {
@@ -80,8 +72,22 @@ public class Enemy2 : BaseEnemys
 
     }
 
-
     protected IEnumerator AtkAfterTime()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (_nextAtkTime >= _atkSpeed)
+        {
+            this.TurningDirectionPlayer();
+            StartCoroutine(AtkAniAfterTime());
+        }
+        else
+        {
+            _animator.SetTrigger("idle");
+        }
+    }
+
+
+    protected IEnumerator AtkAniAfterTime()
     {
         _animator.SetTrigger("atk");
         yield return new WaitForSeconds(_timeAniAtk);
