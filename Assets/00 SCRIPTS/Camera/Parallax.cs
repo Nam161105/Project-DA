@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] protected List<LoopBG> _loopBG = new List<LoopBG>();    
+    [SerializeField] protected List<LoopBG> _loopBG = new List<LoopBG>();
+    [SerializeField] protected List<LoopBG> _loopBG2 = new List<LoopBG>();
+
     [SerializeField] protected List<float> _speed = new List<float>();
     int _dirPlayer;
 
@@ -27,6 +29,11 @@ public class Parallax : MonoBehaviour
         for (int i = 0; i < _loopBG.Count; i++)
         {
             _loopBG[i].transform.position += new Vector3(_dirPlayer * _speed[i] * Time.deltaTime, 0, 0);
+        }
+
+        for (int i = 0; i < _loopBG2.Count; i++)
+        {
+            _loopBG2[i].transform.position += new Vector3(_dirPlayer * _speed[i] * Time.deltaTime, 0, 0);
         }
     }
 }
