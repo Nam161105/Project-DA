@@ -62,7 +62,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
         _enenmy.currentHp -= dame;
         if (_enenmy.currentHp <= 0)
         {
-            Debug.Log("nhan vat da chet");
+            Debug.Log("enemy da chet");
             this.Die();
         }
     }

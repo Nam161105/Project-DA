@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static PlayerController;
 
 public class Enemy1 : BaseEnemys
 {
@@ -26,6 +27,11 @@ public class Enemy1 : BaseEnemys
             {
                 if (_nextAtkTime >= _atkSpeed)
                 {
+                    if (HealthBarOfPlayer.Instance._dataPlayer.currentHp <= 0)
+                    {
+                        return;
+
+                    }
                     StartCoroutine(AtkAfterTime());
                 }
                 else

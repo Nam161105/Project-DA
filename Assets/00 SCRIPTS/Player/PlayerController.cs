@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float _atkSpeed3;
     [SerializeField] protected float _countDownAtk3;
 
+    [Header("Speed Jump")]
+    [SerializeField] protected float _jumpSpeed;
+    [SerializeField] protected float _countDownJump;
+
     [Header("UI skill")]
     [SerializeField] protected Image _imageSkill1;
     [SerializeField] protected Image _imageSkill2;
@@ -85,6 +89,7 @@ public class PlayerController : MonoBehaviour
         _countDownAtk = _atkSpeed;
         _countDownAtk2 = _atkSpeed2;
         _countDownAtk3 = _atkSpeed3;
+        _countDownJump = _jumpSpeed;
         _dashTimeImage = _dashCoolDown;
     }
 
@@ -109,6 +114,7 @@ public class PlayerController : MonoBehaviour
         _countDownAtk += Time.deltaTime;
         _countDownAtk2 += Time.deltaTime;
         _countDownAtk3 += Time.deltaTime;
+        _countDownJump += Time.deltaTime;
         _dashTimeImage += Time.deltaTime;
     }
 
@@ -143,7 +149,7 @@ public class PlayerController : MonoBehaviour
             _canDoubleJump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _countDownJump >= _jumpSpeed)
         {
             if (_isOnGround)
             {
@@ -153,7 +159,9 @@ public class PlayerController : MonoBehaviour
             {
                 this.Jump();
                 _canDoubleJump = false;
+                _countDownJump = 0;
             }
+
         }
 
     }
@@ -276,6 +284,11 @@ public class PlayerController : MonoBehaviour
         if (_isAtk3)
         {
             _playerState = PlayerState.Atk3;
+        }
+        if(HealthBarOfPlayer.Instance._dataPlayer.currentHp <= 0)
+        {
+            _playerState = PlayerState.Die;
+            
         }
     }
 

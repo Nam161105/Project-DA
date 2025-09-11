@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip _shotEnemy;
     public AudioClip _enemyPunch;
     public AudioClip _itemPicked;
+    public AudioClip _playerDead;
+    public AudioClip _openDoor;
     private void Awake()
     {
         if (instance == null)

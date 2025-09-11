@@ -17,6 +17,9 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
     [SerializeField] protected GameObject _textDamageUI;
     [SerializeField] protected Text _textHealth;
 
+    [SerializeField] protected PointSpawnDie _pointSpawnDie;
+    [SerializeField] protected Animator _animator;
+
     
 
     private void Awake()
@@ -47,7 +50,7 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
         }
         this.UpdateHealthBar();
     }
-    protected void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         _imageHealth.fillAmount = _dataPlayer.currentHp / _dataPlayer.maxHp;
         _textHealth.text = _dataPlayer.currentHp.ToString() + "/4000";
@@ -64,10 +67,20 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
         textDamage.transform.rotation = Quaternion.identity;
         if (_dataPlayer.currentHp <= 0)
         {
-            Debug.Log("player da chet");
+            _animator.SetTrigger("Die");
+            AudioManager.Instance.PlaySFX(AudioManager.Instance._playerDead);
+            StartCoroutine(DieAfterTime());
         }
         this.UpdateHealthBar();
     }  
 
-    
+
+    protected IEnumerator DieAfterTime()
+    {
+        yield return new WaitForSeconds(2.5f);
+        if (_pointSpawnDie != null)
+        {
+            _pointSpawnDie.RespawnRivive();
+        }
+    }
 }
