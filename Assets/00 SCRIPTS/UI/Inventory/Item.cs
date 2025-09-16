@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     [SerializeField] public string _itemName;
     [SerializeField] public int _quantity;
     [SerializeField] public Sprite _spriteItem;
+    [TextArea(3, 10)]
     [SerializeField] public string _itemDescriptionText;
 
     private void OnCollisionEnter2D(Collision2D collision)

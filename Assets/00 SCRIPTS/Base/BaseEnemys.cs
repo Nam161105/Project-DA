@@ -5,8 +5,9 @@ using UnityEngine;
 
 public abstract class BaseEnemys : MonoBehaviour, IDame
 {
-    [Header("---DataEnemy---")]
-    public DataHealth _enenmy;
+    [Header("---HealthEnemy---")]
+    [SerializeField] protected float _currentHp;
+    [SerializeField] protected float _maxHp;
 
     [Header("---Enemy Move---")]
     [SerializeField] protected float _speed;
@@ -30,18 +31,23 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
     [SerializeField] protected float _distanceCanAtk;
 
 
-
+    private void OnEnable()
+    {
+        _currentHp = _maxHp;
+        _animator = GetComponent<Animator>();
+        _nextAtkTime = _atkSpeed;
+    }
 
     private void Start()
     {
-        _enenmy.currentHp = _enenmy.maxHp;
+        _currentHp = _maxHp;
         _animator = GetComponent<Animator>();
         _nextAtkTime = _atkSpeed;
     }
 
     protected virtual void Update()
     {
-        if(_enenmy.currentHp <= 0)
+        if(_currentHp <= 0)
         {
             _animator.SetTrigger("die");
             return;
@@ -59,10 +65,9 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
         textDame.transform.parent = transform;
         textDame.transform.rotation = Quaternion.identity;
         textDame.SetActive(true);
-        _enenmy.currentHp -= dame;
-        if (_enenmy.currentHp <= 0)
+        _currentHp -= dame;
+        if (_currentHp <= 0)
         {
-            Debug.Log("enemy da chet");
             this.Die();
         }
     }
@@ -71,7 +76,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
     protected abstract void Die();
     protected void TurningDirectionPlayer()
     {
-        if (_enenmy.currentHp <= 0)
+        if (_currentHp <= 0)
         {
             return;
         }

@@ -71,6 +71,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected Image _imageSkill3;
     [SerializeField] protected Image _imageSkillDash;
 
+    [Header("-----Speed Boost-----")]
+    [SerializeField] protected float _addSpeed = 100f; 
+    protected bool _isSpeed = false;
+
 
     private void Awake()
     {
@@ -136,7 +140,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _movement.x = Input.GetAxisRaw("Horizontal") * _speed;
+            if (_isSpeed)
+            {
+                _movement.x = Input.GetAxisRaw("Horizontal") * _speed * _addSpeed;
+            }
+            else
+            {
+                _movement.x = Input.GetAxisRaw("Horizontal") * _speed;
+            }
         }
     }
 
@@ -307,6 +318,18 @@ public class PlayerController : MonoBehaviour
     protected void UpdateSkillDash()
     {
         _imageSkillDash.fillAmount = 1 - (_dashTimeImage / _dashCoolDown);
+    }
+
+    public void AddSpeed()
+    {
+        _isSpeed = true;
+        StartCoroutine(SpeedNormalAfterTime());
+    }
+
+    protected IEnumerator SpeedNormalAfterTime()
+    {
+        yield return new WaitForSeconds(2);
+        _isSpeed = false;
     }
     public enum PlayerState
     {

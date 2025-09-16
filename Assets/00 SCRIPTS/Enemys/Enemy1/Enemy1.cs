@@ -8,7 +8,7 @@ public class Enemy1 : BaseEnemys
 {
 
     [Header("Instance Item After Die")]
-    [SerializeField] protected GameObject _item;
+    [SerializeField] protected GameObject _healthItem;
     [SerializeField] protected float _lifeTime;
 
 
@@ -67,10 +67,11 @@ public class Enemy1 : BaseEnemys
     protected IEnumerator InstanceItemAfterTime()
     {
         yield return new WaitForSeconds(_lifeTime);
-        GameObject g = ObjectPool.Instance.GetObjectPrefab(_item.gameObject);
+        GameObject g = ObjectPool.Instance.GetObjectPrefab(_healthItem.gameObject);
         g.SetActive(true) ;
         g.transform.position = transform.position;
         g.transform.rotation = Quaternion.identity;
     }
+
 
 }

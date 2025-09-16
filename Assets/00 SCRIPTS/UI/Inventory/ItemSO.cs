@@ -16,13 +16,17 @@ public class ItemSO : ScriptableObject
         {
             HealthBarOfPlayer.Instance.AddHealth();
         }
+        if (_stateItem == stateItem.Speed)
+        {
+            PlayerController.Instance.AddSpeed();
+        }
     }
 
     public enum stateItem
     {
         None,
         Health,
-        Mana,
+        Speed,
 
     }
 }

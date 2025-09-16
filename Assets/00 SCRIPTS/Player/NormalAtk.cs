@@ -109,7 +109,7 @@ public class NormalAtk : MonoBehaviour
 
     protected void Skill1Atk()
     {
-        if(_jAtk >= 4)
+        if(_jAtk >= 3)
         {
             _jAtk = 0;
             _imageSkill1.text = _jAtk.ToString();
@@ -134,7 +134,7 @@ public class NormalAtk : MonoBehaviour
 
     protected void Skill3Atk()
     {
-        if (_lAtk >= 1)
+        if (_lAtk >= 2)
         {
             _lAtk = 0;
             _imageSkill3.text = _lAtk.ToString();

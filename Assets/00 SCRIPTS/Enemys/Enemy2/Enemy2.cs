@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy2 : BaseEnemys
 {
+    [Header("Instance Item After Die")]
+    [SerializeField] protected GameObject _healthItem;
+    [SerializeField] protected float _lifeTime;
 
     [SerializeField] protected LayerMask _groundLayerMask;
     protected Rigidbody2D _rb;
@@ -60,7 +63,7 @@ public class Enemy2 : BaseEnemys
 
     protected void Atk()
     {
-        if(_enenmy.currentHp < _enenmy.maxHp)
+        if(_currentHp < _maxHp)
         {
             StartCoroutine(AtkAfterTime());
         }
@@ -99,5 +102,15 @@ public class Enemy2 : BaseEnemys
     protected override void Die()
     {
         _animator.SetTrigger("die");
+        StartCoroutine(InstanceItemAfterTime());
+    }
+
+    protected IEnumerator InstanceItemAfterTime()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+        GameObject g = ObjectPool.Instance.GetObjectPrefab(_healthItem.gameObject);
+        g.SetActive(true);
+        g.transform.position = transform.position;
+        g.transform.rotation = Quaternion.identity;
     }
 }
