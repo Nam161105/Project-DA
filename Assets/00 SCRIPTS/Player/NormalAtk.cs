@@ -30,12 +30,28 @@ public class NormalAtk : MonoBehaviour
     protected HiddenSkill1 _hiddenSkill1;
     [SerializeField] protected CannonFire _hiddenSkill2;
 
+    [SerializeField] protected float _dameAdd;
+    protected float _currentDame;
+
 
     private void Start()
     {
         _hiddenSkill1 = GetComponent<HiddenSkill1>();
+        if(LevelManager.Instance != null)
+        {
+            LevelManager.Instance.DamePerLevel += DamePerLevel;
+        }
+        float baseDame = Random.Range(_minDame, _maxDame);
+        _currentDame = baseDame;
     }
 
+    void OnDestroy()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.DamePerLevel -= DamePerLevel;
+        }
+    }
     void Update()
     {
         this.CheckInput();
@@ -101,7 +117,6 @@ public class NormalAtk : MonoBehaviour
                 this.Skill3Atk();
                 break;
             case KeyCode.None:
-                Debug.LogWarning("Warning");
                 break;
         }
     }
@@ -140,6 +155,12 @@ public class NormalAtk : MonoBehaviour
             _imageSkill3.text = _lAtk.ToString();
             BatAtk.Instance.Atk();
         }
+    }
+
+    protected void DamePerLevel(int newLevel)
+    {
+        _minDame = (int)(_minDame + (newLevel - 1) * _dameAdd);
+        _maxDame = (int)(_maxDame + (newLevel - 1) * _dameAdd);
     }
     private void OnDrawGizmosSelected()
     {

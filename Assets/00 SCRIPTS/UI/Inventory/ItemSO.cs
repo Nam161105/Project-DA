@@ -20,6 +20,10 @@ public class ItemSO : ScriptableObject
         {
             PlayerController.Instance.AddSpeed();
         }
+        if (_stateItem == stateItem.Exp)
+        {
+            LevelManager.Instance.LevelUp(15);
+        }
     }
 
     public enum stateItem
@@ -27,6 +31,7 @@ public class ItemSO : ScriptableObject
         None,
         Health,
         Speed,
+        Exp,
 
     }
 }

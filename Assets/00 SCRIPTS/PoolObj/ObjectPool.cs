@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,7 @@ public class ObjectPool : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,27 +24,25 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetObjectPrefab(GameObject defaultPrefab)
     {
-        if (_listObjPrefab.ContainsKey(defaultPrefab))
+        if (!_listObjPrefab.ContainsKey(defaultPrefab))
         {
-            foreach(GameObject obj in _listObjPrefab[defaultPrefab])
-            {
-                if (obj.activeSelf)
-                {
-                    continue;
-                } 
-                return obj;
-            }
-            GameObject _g = Instantiate(defaultPrefab, transform.position, Quaternion.identity);
-            _listObjPrefab[defaultPrefab].Add(_g);
-            _g.SetActive(false);
-            return _g;
+            _listObjPrefab.Add(defaultPrefab, new List<GameObject>());
         }
 
-        List<GameObject> list = new List<GameObject>();
-        GameObject g = Instantiate(defaultPrefab, transform.position, Quaternion.identity); 
-        list.Add(g);
-        _listObjPrefab.Add(defaultPrefab, list);
-        g.SetActive(false);
-        return g;
+        foreach (GameObject obj in _listObjPrefab[defaultPrefab])
+        {
+            if (!obj.activeSelf) 
+            {
+                obj.SetActive(true); 
+                return obj;
+            }
+        }
+
+        GameObject newObj = Instantiate(defaultPrefab);
+        _listObjPrefab[defaultPrefab].Add(newObj);
+
+        newObj.transform.parent = this.transform;
+
+        return newObj;
     }
 }

@@ -27,22 +27,5 @@ public class PauseButton : MonoBehaviour
         _pauseButton.SetActive(false);
     }
 
-    private void Update()
-    {
-        this.InputPauseMenu();
-    }
-
-    protected void InputPauseMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            _pauseButton.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            _pauseButton.SetActive(false);
-        }
-    }
 
 }
