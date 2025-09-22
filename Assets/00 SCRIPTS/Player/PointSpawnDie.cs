@@ -6,12 +6,14 @@ public class PointSpawnDie : MonoBehaviour
 {
     protected Vector3 _lastPointDie;
     protected float _lastHealth;
-
+    public ChangeMaterial _changeMaterial;
+    protected float _currentExp;
 
     private void Start()
     {
         _lastPointDie = transform.position;
         _lastHealth = HealthBarOfPlayer.Instance._dataPlayer.currentHp;
+        _currentExp = LevelManager.Instance._currentExp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +22,7 @@ public class PointSpawnDie : MonoBehaviour
         {
             _lastPointDie = collision.transform.position;
             _lastHealth = HealthBarOfPlayer.Instance._dataPlayer.currentHp;
+            _currentExp = LevelManager.Instance._currentExp;
         }
     }
 
@@ -27,6 +30,11 @@ public class PointSpawnDie : MonoBehaviour
     {
         transform.position = _lastPointDie;
         HealthBarOfPlayer.Instance._dataPlayer.currentHp = _lastHealth;
+        LevelManager.Instance._currentExp = _currentExp;
         HealthBarOfPlayer.Instance.UpdateHealthBar();
+         if(_changeMaterial != null)
+        {
+            _changeMaterial.ResetMaterial();
+        }
     }
 }

@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     protected static LevelManager instance;
     public static LevelManager Instance => instance;
-    [SerializeField] protected float _currentExp;
+    [SerializeField] public float _currentExp;
     [SerializeField] protected float _maxExp;
     [SerializeField] protected Text _levelText;
     [SerializeField] protected Image _imageLv;
@@ -35,13 +35,6 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            LevelUp(15);
-        }
-    }
 
     public void LevelUp(int expAdd)
     {

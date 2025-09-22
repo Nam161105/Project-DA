@@ -231,7 +231,7 @@ MonoBehaviour:
   _maxHp: 900
   _speed: 5
   _playerPos: {fileID: 550443516458589677, guid: 58852b5368111ca4f967cdb0ee72d5ac, type: 3}
-  _atkSpeed: 1.5
+  _atkSpeed: 2
   _nextAtkTime: 0
   _timeAniAtk: 0.5
   _textDameUI: {fileID: 3227389834982947695, guid: 09c5ca067575ded46ad1ee4743fef66c, type: 3}

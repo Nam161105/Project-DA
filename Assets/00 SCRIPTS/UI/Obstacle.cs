@@ -21,16 +21,26 @@ public class Obstacle : MonoBehaviour
         {
             StartCoroutine(ChangeColorText());
         }
+        else
+        {
+            _openText.GetComponent<Text>().color = Color.black;
+            this.gameObject.GetComponent<Text>().color = Color.black;
+        }
 
         if (Vector2.Distance(transform.position, _openText2.transform.position) <= 2f)
         {
             StartCoroutine(ChangeColorText2());
         }
+        else
+        {
+            _openText2.GetComponent<Text>().color = Color.black;
+            this.gameObject.GetComponent<Text>().color = Color.black;
+        }
     }
 
     protected IEnumerator ChangeColorText()
     {
-        yield return new WaitForSeconds(1);
+        yield return null;
         _colorText.color = Color.white;
         _openText.GetComponent<Text>().color = Color.white;
         _groundMove?.Invoke();
@@ -38,7 +48,7 @@ public class Obstacle : MonoBehaviour
 
     protected IEnumerator ChangeColorText2()
     {
-        yield return new WaitForSeconds(1);
+        yield return null;
         _colorText.color = Color.red;
         _openText2.GetComponent<Text>().color = Color.red;
         _groundMove2?.Invoke();

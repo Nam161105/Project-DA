@@ -6,6 +6,7 @@ public class ButtonInventoryScript : MonoBehaviour
 {
 
     [SerializeField] protected GameObject _inventoryMenu;
+
     public void ButtonActiveInventory()
     {
         _inventoryMenu.SetActive(true);

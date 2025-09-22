@@ -10,21 +10,25 @@ public class PauseButton : MonoBehaviour
     public void Pause()
     {
         _pauseButton.SetActive(true);
+        Time.timeScale = 0f;
     }
     public void Resume()
     {
         _pauseButton.SetActive(false);
+        Time.timeScale = 1f;
     }
 
-    public void Restart()
+    public void Quit()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 0f;
+        Application.Quit();
         _pauseButton.SetActive(false);
     }
 
     public void Cancel()
     {
         _pauseButton.SetActive(false);
+        Time .timeScale = 1f;
     }
 
 

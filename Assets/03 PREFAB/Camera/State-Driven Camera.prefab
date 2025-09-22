@@ -683,8 +683,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 7
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 4861177536332512184, guid: 58852b5368111ca4f967cdb0ee72d5ac, type: 3}
+  m_Follow: {fileID: 4861177536332512184, guid: 58852b5368111ca4f967cdb0ee72d5ac, type: 3}
   m_AnimatedTarget: {fileID: 0}
   m_LayerIndex: 0
   m_ShowDebugText: 0
@@ -710,25 +710,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 11400000, guid: d4a09c0613a7b4a4ca0cb1a093648835, type: 2}
-  m_ParentHash:
-  - m_Hash: -1000890885
-    m_ParentHash: 756556552
-  - m_Hash: -1810285289
-    m_ParentHash: 756556552
-  - m_Hash: -1077924104
-    m_ParentHash: 756556552
-  - m_Hash: 1048712526
-    m_ParentHash: 756556552
-  - m_Hash: -1484045068
-    m_ParentHash: 756556552
-  - m_Hash: -796101534
-    m_ParentHash: 756556552
-  - m_Hash: -536990476
-    m_ParentHash: 756556552
-  - m_Hash: -48798208
-    m_ParentHash: 756556552
-  - m_Hash: -78692568
-    m_ParentHash: 756556552
+  m_ParentHash: []
 --- !u!1 &7718692503739719244
 GameObject:
   m_ObjectHideFlags: 0

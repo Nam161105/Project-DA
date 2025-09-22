@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] protected List<LoopBG> _loopBG = new List<LoopBG>();
     [SerializeField] protected List<LoopBG> _loopBG2 = new List<LoopBG>();
 
     [SerializeField] protected List<float> _speed = new List<float>();
@@ -18,7 +17,6 @@ public class Parallax : MonoBehaviour
     protected void ParallaxBG()
     {
         if (PlayerController.Instance._PlayerState == PlayerController.PlayerState.Idle || 
-            PlayerController.Instance._PlayerState == PlayerController.PlayerState.Jump ||
             PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk1 ||
             PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk2 ||
             PlayerController.Instance._PlayerState == PlayerController.PlayerState.Atk3)
@@ -26,10 +24,6 @@ public class Parallax : MonoBehaviour
             return;
         }
         _dirPlayer = PlayerController.Instance.transform.right.x > 0 ? -1 : 1;
-        for (int i = 0; i < _loopBG.Count; i++)
-        {
-            _loopBG[i].transform.position += new Vector3(_dirPlayer * _speed[i] * Time.deltaTime, 0, 0);
-        }
 
         for (int i = 0; i < _loopBG2.Count; i++)
         {
