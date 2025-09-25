@@ -11,7 +11,6 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
 
     [Header("---Enemy Move---")]
     [SerializeField] protected float _speed;
-    [SerializeField] protected GameObject _playerPos;
 
     [Header("Aniamtion")]
     protected Animator _animator;
@@ -31,7 +30,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
     [SerializeField] protected float _distanceCanAtk;
 
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         _currentHp = _maxHp;
         _animator = GetComponent<Animator>();
@@ -80,7 +79,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
         {
             return;
         }
-        float direction = _playerPos.transform.position.x - transform.position.x;
+        float direction = PlayerController.Instance.transform.position.x - transform.position.x;
 
         if (direction < 0)
         {

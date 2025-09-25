@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class MaterialIntivial : MonoBehaviour
 {
-    protected Vector2 _tranformPos;
-    protected Quaternion _tranformRot;
+    protected Vector3 initialPosition;
+    protected Quaternion initialRotation;
+    protected bool initialActive;
 
+    [SerializeField] protected bool deactiveObj = false;
 
     private void Awake()
     {
-        _tranformPos = this.transform.position;
-        _tranformRot = transform.rotation;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        initialActive = gameObject.activeSelf;
     }
 
     public void Reset()
     {
-        transform.position = _tranformPos;  
-
-        transform.rotation = _tranformRot;
-
-        this.gameObject.SetActive(true);
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        if (deactiveObj)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(initialActive);
+        }
     }
 }

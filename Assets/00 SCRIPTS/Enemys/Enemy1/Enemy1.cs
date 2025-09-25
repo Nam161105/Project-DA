@@ -15,7 +15,7 @@ public class Enemy1 : BaseEnemys
 
     protected override void MoveToPlayer()
     {
-        float distance = Vector2.Distance(this.transform.position, _playerPos.transform.position);
+        float distance = Vector2.Distance(this.transform.position, PlayerController.Instance.transform.position);
         this.TurningDirectionPlayer();
         if (distance > _distancePlayerWithEnemy)
         {
@@ -42,7 +42,7 @@ public class Enemy1 : BaseEnemys
             else
             {
                 this.transform.position = Vector2.MoveTowards
-                (this.transform.position, _playerPos.transform.position, _speed * Time.deltaTime);
+                (this.transform.position, PlayerController.Instance.transform.position, _speed * Time.deltaTime);
                 _animator.SetTrigger("walk");
             }
         }

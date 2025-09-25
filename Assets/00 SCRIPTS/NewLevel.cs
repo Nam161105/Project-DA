@@ -16,6 +16,6 @@ public class NewLevel : MonoBehaviour
     protected IEnumerator NewLevelAfterTime()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

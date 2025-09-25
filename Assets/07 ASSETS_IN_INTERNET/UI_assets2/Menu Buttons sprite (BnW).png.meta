@@ -286,7 +286,7 @@ TextureImporter:
         width: 202
         height: 205
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,6 +294,27 @@ TextureImporter:
       bones: []
       spriteID: 5f82fcb73ce1b384a91bd53390c33fc7
       internalID: 1640669145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu Buttons sprite (BnW)_9
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 0
+        width: 208
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbbca6fb0cc5e7458f8c49e726c1e97
+      internalID: -765429750
       vertices: []
       indices: 
       edges: []
@@ -318,6 +339,7 @@ TextureImporter:
       Menu Buttons sprite (BnW)_6: -521072728
       Menu Buttons sprite (BnW)_7: -676372988
       Menu Buttons sprite (BnW)_8: 1640669145
+      Menu Buttons sprite (BnW)_9: -765429750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

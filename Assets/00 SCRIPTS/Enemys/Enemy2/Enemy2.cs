@@ -20,7 +20,7 @@ public class Enemy2 : BaseEnemys
 
     protected override void MoveToPlayer()
     {
-        float distance = Vector2.Distance(this.transform.position, _playerPos.transform.position);
+        float distance = Vector2.Distance(this.transform.position, PlayerController.Instance.transform.position);
         if (distance > _distancePlayerWithEnemy)
         {
             this.MoveAroundGround();

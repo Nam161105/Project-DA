@@ -29,11 +29,19 @@ public class ObjectPool : MonoBehaviour
             _listObjPrefab.Add(defaultPrefab, new List<GameObject>());
         }
 
-        foreach (GameObject obj in _listObjPrefab[defaultPrefab])
+        for (int i = _listObjPrefab[defaultPrefab].Count - 1; i >= 0; i--)
         {
-            if (!obj.activeSelf) 
+            GameObject obj = _listObjPrefab[defaultPrefab][i];
+
+            // Cần thiết: Kiểm tra xem đối tượng có null không (tức là đã bị hủy)
+            if (obj == null)
             {
-                obj.SetActive(true); 
+                // Nếu đối tượng đã bị hủy, hãy xóa nó khỏi danh sách
+                _listObjPrefab[defaultPrefab].RemoveAt(i);
+            }
+            else if (!obj.activeSelf)
+            {
+                obj.SetActive(true);
                 return obj;
             }
         }
