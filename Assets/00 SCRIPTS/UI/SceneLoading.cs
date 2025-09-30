@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class SceneLoading : MonoBehaviour
 {
-    [SerializeField] protected float _timeLoadScene;
+    [SerializeField] protected PlayableDirector _playableDirector;
 
 
-    private void Update()
+    private void Start()
     {
-        _timeLoadScene -= Time.deltaTime;
-        if (_timeLoadScene <= 0)
-        {
-            SceneManager.LoadScene(1);
-        }
+        _playableDirector.Play();
+        _playableDirector.stopped += OnSkippable;
+    }
+
+    protected void OnSkippable(PlayableDirector playableDirector)
+    {
+        _playableDirector.stopped -= OnSkippable;
+        SceneManager.LoadScene(1);
+    }
+
+    public void SkippIntro()
+    {
+        _playableDirector.Stop();
     }
 
 }

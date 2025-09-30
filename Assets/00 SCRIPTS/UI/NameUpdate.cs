@@ -16,6 +16,11 @@ public class NameUpdate : MonoBehaviour
 
     private void Update()
     {
+        this.NameTextMoveToPlayer();
+    }
+
+    protected void NameTextMoveToPlayer()
+    {
         transform.position = PlayerController.Instance.transform.position + new Vector3(0, _offsetY, 0);
     }
 }

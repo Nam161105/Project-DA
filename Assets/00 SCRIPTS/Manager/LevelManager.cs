@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            int expAdd = 3;
+            int expAdd = 4;
             LevelUp(expAdd);
         }
     }

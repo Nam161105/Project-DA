@@ -2985,9 +2985,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "L\u01B0\u1EDBt: th\u1EDDi gian h\u1ED3i chi\xEAu 1s, ng\u01B0\u1EDDi ch\u01A1i
-    l\u1EADp t\u1EE9c l\u01B0\u1EDBt 1 \u0111o\u1EA1n v\u1EC1 ph\xEDa tr\u01B0\u1EDBc,
-    th\u1EDDi gian kho\u1EA3ng 0,2s\n"
+  m_Text: "L\u01B0\u1EDBt: k\xEDch ho\u1EA1t (ph\xEDm E), th\u1EDDi gian h\u1ED3i
+    chi\xEAu 1s, ng\u01B0\u1EDDi ch\u01A1i l\u1EADp t\u1EE9c l\u01B0\u1EDBt 1 \u0111o\u1EA1n
+    v\u1EC1 ph\xEDa tr\u01B0\u1EDBc, th\u1EDDi gian kho\u1EA3ng 0,2s\n"
 --- !u!1 &6438071760677556383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,10 +3597,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Chi\xEAu 1: ng\u01B0\u1EDDi ch\u01A1i d\xF9ng l\u1EF1c tay t\u1EA5n c\xF4ng
-    v\u1EC1 ph\xEDa tr\u01B0\u1EDBc m\u1EB7t, h\u1ED3i chi\xEAu 1s\n\nN\u1ED9i t\u1EA1i:
-    khi t\u1EA5n c\xF4ng tr\xFAng k\u1EBB \u0111\u1ECBch \u0111\u1EE7 3 l\u1EA7n,
-    s\u1EBD k\xEDch ho\u1EA1t v\u1EE5 n\u1ED5 g\xE2y th\xEAm s\xE1t th\u01B0\u01A1ng "
+  m_Text: "Chi\xEAu 1: k\xEDch ho\u1EA1t chi\xEAu th\u1EE9c(ph\xEDm J), ng\u01B0\u1EDDi
+    ch\u01A1i d\xF9ng l\u1EF1c tay t\u1EA5n c\xF4ng v\u1EC1 ph\xEDa tr\u01B0\u1EDBc
+    m\u1EB7t, h\u1ED3i chi\xEAu 1s\n\nN\u1ED9i t\u1EA1i: khi t\u1EA5n c\xF4ng tr\xFAng
+    k\u1EBB \u0111\u1ECBch \u0111\u1EE7 3 l\u1EA7n, s\u1EBD k\xEDch ho\u1EA1t v\u1EE5
+    n\u1ED5 g\xE2y th\xEAm s\xE1t th\u01B0\u01A1ng "
 --- !u!1 &7479349016128988510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,10 +3877,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Chi\xEAu 2: ng\u01B0\u1EDDi ch\u01A1i t\u1EE9c th\u1EDDi t\u1EA5n c\xF4ng
-    v\u1EC1 ph\xEDa tr\u01B0\u1EDBc, h\u1ED3i chi\xEAu 1.5s\n\nN\u1ED9i t\u1EA1i:
-    khi t\u1EA5n c\xF4ng tr\xFAng k\u1EBB \u0111\u1ECBch \u0111\u1EE7 2 l\u1EA7n,
-    s\u1EBD k\xEDch ho\u1EA1t kh\u1EA9u ph\xE1o t\u1EA5n c\xF4ng k\u1EBB \u0111\u1ECBch"
+  m_Text: "Chi\xEAu 2: k\xEDch ho\u1EA1t chi\xEAu th\u1EE9c(ph\xEDm K), ng\u01B0\u1EDDi
+    ch\u01A1i t\u1EE9c th\u1EDDi t\u1EA5n c\xF4ng v\u1EC1 ph\xEDa tr\u01B0\u1EDBc,
+    h\u1ED3i chi\xEAu 1.5s\n\nN\u1ED9i t\u1EA1i: khi t\u1EA5n c\xF4ng tr\xFAng k\u1EBB
+    \u0111\u1ECBch \u0111\u1EE7 2 l\u1EA7n, s\u1EBD k\xEDch ho\u1EA1t kh\u1EA9u ph\xE1o
+    t\u1EA5n c\xF4ng k\u1EBB \u0111\u1ECBch"
 --- !u!1 &8306152496515711008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3958,11 +3960,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Chi\xEAu 3: ng\u01B0\u1EDDi ch\u01A1i t\u1EE5 l\u1EF1c tung \u0111\xF2n
-    \u0111\xE1nh c\u1EF1c m\u1EA1nh, h\u1ED3i chi\xEAu 2s\n\nN\u1ED9i t\u1EA1i: khi
-    t\u1EA5n c\xF4ng tr\xFAng t\u01B0\u1EDBng \u0111\u1ECBch \u0111\u1EE7 2 l\u1EA7n,
-    linh v\u1EADt d\u01A1i s\u1EBD t\u1EA5n c\xF4ng th\xEAm 1 \u0111\xF2n b\u1EAFn
-    n\u1EEFa, g\xE2y s\xE1t th\u01B0\u01A1ng l\xEAn \u0111\u1ECBch "
+  m_Text: "Chi\xEAu 3: k\xEDch ho\u1EA1t chi\xEAu th\u1EE9c(ph\xEDm L), ng\u01B0\u1EDDi
+    ch\u01A1i t\u1EE5 l\u1EF1c tung \u0111\xF2n \u0111\xE1nh c\u1EF1c m\u1EA1nh,
+    h\u1ED3i chi\xEAu 2s\n\nN\u1ED9i t\u1EA1i: khi t\u1EA5n c\xF4ng tr\xFAng t\u01B0\u1EDBng
+    \u0111\u1ECBch \u0111\u1EE7 2 l\u1EA7n, linh v\u1EADt d\u01A1i s\u1EBD t\u1EA5n
+    c\xF4ng th\xEAm 1 \u0111\xF2n b\u1EAFn n\u1EEFa, g\xE2y s\xE1t th\u01B0\u01A1ng
+    l\xEAn \u0111\u1ECBch "
 --- !u!1 &8746059460692537445
 GameObject:
   m_ObjectHideFlags: 0

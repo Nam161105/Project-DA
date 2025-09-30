@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
             this.gameObject.GetComponent<Text>().color = Color.black;
         }
 
-        if (Vector2.Distance(transform.position, _openText2.transform.position) <= 2f)
+        if (Vector2.Distance(transform.position, _openText2.transform.position) <= 2.5f)
         {
             StartCoroutine(ChangeColorText2());
         }

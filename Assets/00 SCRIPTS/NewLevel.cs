@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewLevel : MonoBehaviour
 {
+    [SerializeField] protected Animator _ani;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -15,7 +16,9 @@ public class NewLevel : MonoBehaviour
 
     protected IEnumerator NewLevelAfterTime()
     {
+        _ani.SetTrigger("end");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  
     }
+
 }
