@@ -15,6 +15,27 @@ public class FormLogin : MonoBehaviour
     [SerializeField] protected Slider _slider;
     [SerializeField] protected int _id;
 
+    [SerializeField] protected GameObject _skippButton;
+
+    private void Start()
+    {
+        string savedName = PlayerPrefs.GetString("PlayerName", "");
+        if (!string.IsNullOrEmpty(savedName))
+        {
+            if(_skippButton != null)
+            {
+                _skippButton.SetActive(true);
+            }
+            _inputField.text = savedName;
+        }
+        else
+        {
+            if (_skippButton != null)
+            {
+                _skippButton.SetActive(false);
+            }
+        }
+    }
     public void SaveName()
     {
         string playerName = _inputField.text;
@@ -51,6 +72,12 @@ public class FormLogin : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
+    }
+
+    public void SkippButton()
+    {
         _sceneLoading.SetActive(true);
+        _slider.value = 0;
+        StartCoroutine(LoadScenAfterTime(_id));
     }
 }

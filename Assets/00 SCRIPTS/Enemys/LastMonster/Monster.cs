@@ -5,6 +5,16 @@ using UnityEngine;
 public class Monster : BaseEnemys
 {
 
+    protected override void Update()
+    {
+        StartCoroutine(TalkFuncAfterTime());
+    }
+
+    protected IEnumerator TalkFuncAfterTime()
+    {
+        yield return new WaitForSeconds(1);
+        base.Update();
+    }
     protected override void MoveToPlayer()
     {
         float distance = Vector2.Distance(this.transform.position, PlayerController.Instance.transform.position);

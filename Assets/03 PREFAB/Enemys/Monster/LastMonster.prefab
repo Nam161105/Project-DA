@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &294192251855020295
 Transform:
   m_ObjectHideFlags: 0
@@ -198,7 +198,6 @@ MonoBehaviour:
   _currentHp: 300
   _maxHp: 300
   _speed: 5
-  _playerPos: {fileID: 0}
   _atkSpeed: 1
   _nextAtkTime: 0
   _timeAniAtk: 0.5

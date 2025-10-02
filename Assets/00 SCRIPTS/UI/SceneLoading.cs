@@ -19,7 +19,7 @@ public class SceneLoading : MonoBehaviour
     protected void OnSkippable(PlayableDirector playableDirector)
     {
         _playableDirector.stopped -= OnSkippable;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void SkippIntro()

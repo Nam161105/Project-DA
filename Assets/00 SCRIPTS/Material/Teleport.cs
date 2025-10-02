@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
@@ -7,19 +8,19 @@ public class Teleport : MonoBehaviour
     [SerializeField] protected Transform _teleportB;
     [SerializeField] protected Animator _ani;
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        float dis = Vector3.Distance(this.transform.position, PlayerController.Instance.transform.position);
-        if(dis <= 2f)
+        if (collision.CompareTag("Player"))
         {
             StartCoroutine(TeleportAfterTime());
         }
     }
 
+
     protected IEnumerator TeleportAfterTime()
     {
         _ani.SetTrigger("min");
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         PlayerController.Instance.transform.position = _teleportB.position;
         _ani.SetTrigger("max");
     }
