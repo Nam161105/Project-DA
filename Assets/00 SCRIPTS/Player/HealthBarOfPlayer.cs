@@ -20,7 +20,10 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
     [SerializeField] protected PointSpawnDie _pointSpawnDie;
     [SerializeField] protected Animator _animator;
 
-    
+    protected CapsuleCollider2D _cap;
+    protected bool _isDead = false;
+
+
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
     {
         _dataPlayer.currentHp = _dataPlayer.maxHp;
         this.UpdateHealthBar();
+        _cap = GetComponent<CapsuleCollider2D>();
     }
 
 
@@ -58,6 +62,7 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
 
     public void TakDame(int minDame, int maxDame)
     {
+        if (_isDead) return;
         int dame = Random.Range(minDame, maxDame);
         _dataPlayer.currentHp -= dame;
         GameObject textDamage = ObjectPool.Instance.GetObjectPrefab(_textDamageUI.gameObject);
@@ -67,6 +72,9 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
         textDamage.transform.rotation = Quaternion.identity;
         if (_dataPlayer.currentHp <= 0)
         {
+            _dataPlayer.currentHp = 0;
+            _isDead = true;
+            this.ChangeColliderDie();
             _animator.SetTrigger("Die");
             AudioManager.Instance.PlaySFX(AudioManager.Instance._playerDead);
             StartCoroutine(DieAfterTime());
@@ -74,13 +82,26 @@ public class HealthBarOfPlayer : MonoBehaviour, IDame
         this.UpdateHealthBar();
     }  
 
+    protected void ChangeColliderDie()
+    {
+        _cap.offset = new Vector2(0.097f, 0.0958f);
+        _cap.size = new Vector2(1.1795f, 1.3694f);
+    }
+
 
     protected IEnumerator DieAfterTime()
     {
         yield return new WaitForSeconds(2.5f);
+        this.ReserCollider(); 
+        _isDead = false;
         if (_pointSpawnDie != null)
         {
             _pointSpawnDie.RespawnRivive();
         }
+    }
+    protected void ReserCollider()
+    {
+        _cap.offset = new Vector2(0.097f, 0.008f);
+        _cap.size = new Vector2(1.1795f, 4.2846f);
     }
 }

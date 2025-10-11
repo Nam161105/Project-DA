@@ -41,12 +41,12 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    //private void Start()
-    //{
-    //    _musicSource.clip = _bgClip;
-    //    _musicSource.loop = true;
-    //    _musicSource.Play();
-    //}
+    private void Start()
+    {
+        _musicSource.clip = _bgClip;
+        _musicSource.loop = true;
+        _musicSource.Play();
+    }
 
     public void PlaySFX(AudioClip clip)
     {

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/08 SCENES/CutScene.unity
     guid: 40e9989750b783843bb3497e074612ae
   - enabled: 1
+    path: Assets/08 SCENES/MainMenu.unity
+    guid: 69e68843d2108b54981cbe4293de681e
+  - enabled: 1
     path: Assets/08 SCENES/FormLogin.unity
     guid: 70a675ed5c782df43a269f7a04a82b17
   - enabled: 1
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/08 SCENES/Level2.unity
     guid: 74cf9ecdce50ffa489ebd6bd0b2e5e3e
+  - enabled: 1
+    path: Assets/08 SCENES/Level3.unity
+    guid: 9f3df0283819c9441b36f5e3fdc4b5d3
   m_configObjects: {}

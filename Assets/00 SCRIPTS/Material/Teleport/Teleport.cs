@@ -20,7 +20,7 @@ public class Teleport : MonoBehaviour
     protected IEnumerator TeleportAfterTime()
     {
         _ani.SetTrigger("min");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         PlayerController.Instance.transform.position = _teleportB.position;
         _ani.SetTrigger("max");
     }

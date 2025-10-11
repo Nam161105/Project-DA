@@ -128,11 +128,20 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+        if(_playerState == PlayerState.Die)
+        {
+            _rb.velocity = Vector3.zero;
+            return;
+        }
         _rb.velocity = new Vector2(_movement.x, _rb.velocity.y);
     }
 
     protected void Move()
     {
+        if (_playerState == PlayerState.Die)
+        {
+            return;
+        }
         _movement = _rb.velocity;
         if (_isAtk1 || _isAtk2 || _isAtk3)
         {
@@ -153,6 +162,10 @@ public class PlayerController : MonoBehaviour
 
     protected void DoubleJump()
     {
+        if (_playerState == PlayerState.Die)
+        {
+            return;
+        }
         _isOnGround = Physics2D.OverlapCircle(_pointJump.transform.position, 0.2f, _groundLayerMask);
 
         if (_isOnGround)
@@ -186,6 +199,10 @@ public class PlayerController : MonoBehaviour
 
     protected void Dash()
     {
+        if (_playerState == PlayerState.Die)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.E) && _canDash && _dashTimeImage >= _dashCoolDown)
         {
             _dashTimeImage = 0;
@@ -195,6 +212,10 @@ public class PlayerController : MonoBehaviour
 
     protected void Atks()
     {
+        if (_playerState == PlayerState.Die)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.J) && !_isAtk1 && _countDownAtk >= _atkSpeed)
         {
             _countDownAtk = 0;
@@ -252,6 +273,10 @@ public class PlayerController : MonoBehaviour
 
     protected void Turning()
     {
+        if (_playerState == PlayerState.Die)
+        {
+            return;
+        }
         if (_rb.velocity.x > 0f)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);

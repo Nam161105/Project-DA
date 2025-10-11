@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointAtk: {fileID: 4370571917944340274}
-  _rangeAtk: 0.2
+  _rangeAtk: 0.7
   _enemy:
     serializedVersion: 2
     m_Bits: 512
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointAtk: {fileID: 7181378994214536117}
-  _rangeAtk: 0.3
+  _rangeAtk: 0.88
   _enemy:
     serializedVersion: 2
     m_Bits: 512
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointAtk: {fileID: 8408165806773998506}
-  _rangeAtk: 0.2
+  _rangeAtk: 0.55
   _enemy:
     serializedVersion: 2
     m_Bits: 512
@@ -462,15 +462,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bb66f59d928d74b8b108104c215989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _speed: 5
   _jumpForce: 1000
   _pointJump: {fileID: 5766962481362193986}
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _forceDash: 45
+  _forceDash: 35
   _timeDash: 0.25
-  _dashCoolDown: 1
+  _dashCoolDown: 2
   _dashTimeImage: 0.25
   _playerState: 0
   _ani: {fileID: 2743430495462643263}
@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 5921990581801272165}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.57, y: 1, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -582,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 6257206978565484929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 2.06, z: 0}
+  m_LocalPosition: {x: 0.85, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -613,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 8310337398815512142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.43, y: 1.14, z: 0}
+  m_LocalPosition: {x: 0.98, y: 1.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

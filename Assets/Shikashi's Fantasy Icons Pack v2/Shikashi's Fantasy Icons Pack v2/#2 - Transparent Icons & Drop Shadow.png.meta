@@ -181,7 +181,7 @@ TextureImporter:
         width: 33
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,6 +189,48 @@ TextureImporter:
       bones: []
       spriteID: 748bbea42246940478b25f89177235ca
       internalID: 314991627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '#2 - Transparent Icons & Drop Shadow_4'
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 258
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851866508a2b6e84aa2e45f0f2c95d18
+      internalID: -666029859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '#2 - Transparent Icons & Drop Shadow_5'
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 514
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c073bc341d52740b115632136be316
+      internalID: 1591400144
       vertices: []
       indices: 
       edges: []
@@ -208,6 +250,8 @@ TextureImporter:
       '#2 - Transparent Icons & Drop Shadow_1': 349182162
       '#2 - Transparent Icons & Drop Shadow_2': 549650530
       '#2 - Transparent Icons & Drop Shadow_3': 314991627
+      '#2 - Transparent Icons & Drop Shadow_4': -666029859
+      '#2 - Transparent Icons & Drop Shadow_5': 1591400144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
