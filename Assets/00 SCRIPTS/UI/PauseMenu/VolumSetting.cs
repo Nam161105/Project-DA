@@ -12,10 +12,7 @@ public class VolumSetting : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Music"))
-        {
-            this.LoadVolume();
-        }
+        if (PlayerPrefs.HasKey("Music")) this.LoadVolume();
         else
         {
             this.SetVolume();

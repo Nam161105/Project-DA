@@ -10,7 +10,7 @@ public class PauseButton : MonoBehaviour
     public void Pause()
     {
         _pauseButton.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
     public void Resume()
     {
@@ -21,13 +21,12 @@ public class PauseButton : MonoBehaviour
     public void DeleteName()
     {
         Time.timeScale = 1f;
-        PlayerPrefs.DeleteKey("PlayerName");
         SceneManager.LoadScene(1);
     }
 
     public void Quit()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         Application.Quit();
         _pauseButton.SetActive(false);
     }
