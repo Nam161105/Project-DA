@@ -10,14 +10,14 @@ public class MaterialIntivial : MonoBehaviour
 
     [SerializeField] protected bool deactiveObj = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
         initialActive = gameObject.activeSelf;
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         transform.position = initialPosition;
         transform.rotation = initialRotation;

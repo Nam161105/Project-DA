@@ -470,7 +470,7 @@ MonoBehaviour:
     m_Bits: 128
   _forceDash: 35
   _timeDash: 0.25
-  _dashCoolDown: 2
+  _dashCoolDown: 1.5
   _dashTimeImage: 0.25
   _playerState: 0
   _ani: {fileID: 2743430495462643263}

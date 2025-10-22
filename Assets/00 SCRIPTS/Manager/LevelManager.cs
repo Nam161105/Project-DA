@@ -38,10 +38,7 @@ public class LevelManager : MonoBehaviour
 
     public void LevelUp(int expAdd)
     {
-        if (level == 15)
-        {
-            return;
-        }
+        if (level == 15) return;
         _currentExp += expAdd;
         UpdateUI();
         if (_currentExp >= _maxExp)
@@ -59,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
     protected IEnumerator AddExpPerSecond()
     {
-        while (true)
+        while (level <= 15)
         {
             yield return new WaitForSeconds(1);
             int expAdd = 3;

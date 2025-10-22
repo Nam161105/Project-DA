@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip _itemPicked;
     public AudioClip _playerDead;
     public AudioClip _monster;
+    public AudioClip _teleport;
+    public AudioClip _boss1;
 
     private void Awake()
     {

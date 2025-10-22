@@ -143,5 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8743301c239ed3540848b27054320b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportB: {fileID: 0}
+  _teleportB: {fileID: 5583138354444942763, guid: 28c155f4a47c12845a08d7333727af25, type: 3}
   _ani: {fileID: 0}

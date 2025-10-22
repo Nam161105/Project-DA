@@ -27,6 +27,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
     [Header("Distance with Player")]
     [SerializeField] protected float _distancePlayerWithEnemy;
     [SerializeField] protected float _distanceCanAtk;
+    protected bool _isDie = false;
 
 
     protected virtual void OnEnable()
@@ -57,6 +58,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
 
     public void TakDame(int minDame, int maxDame)
     {
+        if (_isDie) return;
         int dame = Random.Range(minDame, maxDame);
         GameObject textDame = ObjectPool.Instance.GetObjectPrefab(_textDameUI.gameObject);
         textDame.GetComponent<TextMesh>().text = dame.ToString();
@@ -66,6 +68,7 @@ public abstract class BaseEnemys : MonoBehaviour, IDame
         _currentHp -= dame;
         if (_currentHp <= 0)
         {
+            _isDie = true;
             this.Die();
         }
     }

@@ -18,11 +18,6 @@ public class PauseButton : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void DeleteName()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
-    }
 
     public void Quit()
     {

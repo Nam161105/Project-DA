@@ -33,10 +33,8 @@ public class ObjectPool : MonoBehaviour
         {
             GameObject obj = _listObjPrefab[defaultPrefab][i];
 
-            // Cần thiết: Kiểm tra xem đối tượng có null không (tức là đã bị hủy)
             if (obj == null)
             {
-                // Nếu đối tượng đã bị hủy, hãy xóa nó khỏi danh sách
                 _listObjPrefab[defaultPrefab].RemoveAt(i);
             }
             else if (!obj.activeSelf)
